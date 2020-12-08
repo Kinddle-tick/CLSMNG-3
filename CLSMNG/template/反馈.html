@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Effe - Contact Us</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<!-- Load CSS -->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- Load Fonts -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
+<!-- Load jQuery library -->
+<script type="text/javascript" src="../static/scriptss/jquery-1.6.2.min.js"></script>
+<!-- Load custom js -->
+<script type="text/javascript" src="../static/scriptss/panelslide.js"></script>
+<script type="text/javascript" src="../static/scriptss/custom.js"></script>
+<!-- Load topcontrol js -->
+<script type="text/javascript" src="../static/scriptss/scrolltopcontrol.js"></script>
+<!-- Load NIVO Slider -->
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-theme.css" type="text/css" media="screen" />
+<script src="../static/scriptss/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+<script src="../static/scriptss/nivo-options.js" type="text/javascript"></script>
+<!-- Load fancybox -->
+<script type="text/javascript" src="../static/scriptss/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="../static/scriptss/jquery.easing-1.3.pack.js"></script>
+<script type="text/javascript" src="../static/scriptss/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+<!-- Load contact check -->
+<script type="text/javascript">
+function MM_validateForm() { //v4.0
+  if (document.getElementById){
+    var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+    for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=document.getElementById(args[i]);
+      if (val) { nm=val.name; if ((val=val.value)!="") {
+        if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
+          if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
+        } else if (test!='R') { num = parseFloat(val);
+          if (isNaN(val)) errors+='- '+nm+' must contain a number.\n';
+          if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
+            min=test.substring(8,p); max=test.substring(p+1);
+            if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
+      } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
+    } if (errors) alert('We are sorry, but there is an error:\n'+errors);
+    document.MM_returnValue = (errors == '');
+} }
+</script>
+</head>
+<body>
+<!--This is the START of the header-->
+<div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
+<div id="header-wrapper">
+  <div id="header">
+    <div id="logo"><a href="index.html"><img src="images/UESTC logo.jpg" width="100" height="100" alt="logo" /></a></div>
+    <div id="header-text">
+      <h4>教室管理系统欢迎您！</h4>
+		<a style="color:#000000" href="index.html" >登录/</a>
+		<a style="color:#000000" href="index.html" >注册</a>
+    </div>
+  </div>
+</div>
+<!--END of header-->
+<!--This is the START of the menu-->
+<div id="menu-wrapper">
+	<div id="main-menu">
+		<ul>
+			<li><a href="index.html">主页</a></li>
+			<li><a href="课表.html">我的课表</a></li>
+			<li><a href="教室预约.html">教室预约</a></li>
+			<li><a class="selected" href="反馈.html">反馈  →</a></li>
+		</ul>
+	</div>
+	<!--END of footer-->
+</div>
+<!--END of menu-->
+<!--This is the START of the content-->
+<div id="content">
+  <!--This is the START of the contact section--><div id="contact">
+    <h5 style="margin-top:10px;">反馈</h5>
+    <p>如果您想向我们反馈相关信息，请使用此表格，我们将很快给您答复！</p>
+    <div name="contact" action="scripts/contact.php" id="contactform" method="post">
+      <div class="boxes">
+        <h6>反馈类型</h6>
+        <div class="box">
+			<select name="select" class="select">
+                <option value="">实际用途与申请不符</option>
+                <option value="">实际使用时间与申请不符</option>
+                <option value="">桌椅损坏</option>
+                <option value="">多媒体设备故障</option>
+				<option value="">其他</option>
+            </select>
+        </div>
+        <h6>具体理由</h6>
+        <div class="msgbox">
+          <textarea name="cf_message" rows="50" cols="30" class="message" id="cf_message"
+		placeholder="请准确填写理由，有利于审核"></textarea>
+        </div>
+		<h6>请以附件形式提交反馈凭证（支持以图片、音频、视频格式上传）:</h6>
+		<h6><img src="images/tip logo.jpg" width="18" height="18" alt="logo" />提示：仅限20M以内文件</h6>
+        <div class="submitbtn">
+            <p id=<input type="submit" class="button btncolor" onClick="MM_validateForm('sender_name','','R');MM_validateForm('sender_email','','RisEmail');return document.MM_returnValue" value="上传附件" /></p>
+            <script>
+            //通过id获取元素
+                var p11 = document.getElementById("p1");
+                 p11.onclick = function openFileIIs(){
+                     var filename = "d:\\test\\";
+                     try{
+                         var obj=new ActiveXObject("wscript.shell");
+                         if(obj){
+                             obj.Run("\""+filename+"\"", 1, false );
+                             //obj.run("osk");/*打开屏幕键盘*/
+                             //obj.Run('"'+filename+'"');
+                             obj=null;
+                         }
+                     }catch(e){
+                         alert("请确定是否存在该盘符或文件");
+                     }
+                 }
+            </script>
+
+        </div>
+		<br><br/>
+		<div class="submitbtn">
+          <input type="submit" class="button btncolor1" onClick="MsgBox()" value="返回上一级" />
+			<script language="javascript">
+			function MsgBox() //声明标识符
+			{
+				confirm("是否保存当前内容"); //弹出对话框
+			}
+			</script>
+		<div class="submitbtn">
+          <input type="submit" class="button btncolor1" onClick="MM_validateForm('sender_name','','R');MM_validateForm('sender_email','','RisEmail');return document.MM_returnValue" value="提交" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--END of content-->
+<p class="slide"><a href="#" class="btn-slide"></a></p>
+<p class="slide"><a href="#" class="btn-slide"></a></p>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Effe - About</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<!-- Load CSS -->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- Load Fonts -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
+<!-- Load jQuery library -->
+<script type="text/javascript" src="../static/scriptss/jquery-1.6.2.min.js"></script>
+<!-- Load custom js -->
+<script type="text/javascript" src="../static/scriptss/panelslide.js"></script>
+<script type="text/javascript" src="../static/scriptss/custom.js"></script>
+<!-- Load topcontrol js -->
+<script type="text/javascript" src="../static/scriptss/scrolltopcontrol.js"></script>
+<!-- Load NIVO Slider -->
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-theme.css" type="text/css" media="screen" />
+<script src="../static/scriptss/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+<script src="../static/scriptss/nivo-options.js" type="text/javascript"></script>
+<!-- Load fancybox -->
+<script type="text/javascript" src="../static/scriptss/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="../static/scriptss/jquery.easing-1.3.pack.js"></script>
+<script type="text/javascript" src="../static/scriptss/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+<script type="text/javascript">
+function MM_validateForm() { //v4.0
+  if (document.getElementById){
+    var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+    for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=document.getElementById(args[i]);
+      if (val) { nm=val.name; if ((val=val.value)!="") {
+        if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
+          if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
+        } else if (test!='R') { num = parseFloat(val);
+          if (isNaN(val)) errors+='- '+nm+' must contain a number.\n';
+          if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
+            min=test.substring(8,p); max=test.substring(p+1);
+            if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
+      } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
+    } if (errors) alert('We are sorry, but there is an error:\n'+errors);
+    document.MM_returnValue = (errors == '');
+} }
+</script>
+</head>
+<body>
+<!--This is the START of the header-->
+<div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
+<div id="header-wrapper">
+  <div id="header">
+    <div id="logo"><a href="index.html"><img src="images/logo.png" width="100" height="80" alt="logo" /></a></div>
+    <div id="header-text">
+      <h4>Welcome to Classroom Management System!</h4>
+      <h6><a href="index.html">Home</a> → About</h6>
+    </div>
+  </div>
+</div>
+<!--END of header-->
+<!--This is the START of the menu-->
+<div id="menu-wrapper">
+  <div id="main-menu">
+    <ul>
+      <li><a href="index.html">主页</a></li>
+      <li><a class="selected" href="课表.html">登陆 →</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="教室预约.html">教室预约</a></li>
+      <li><a href="反馈.html">反馈</a></li>
+    </ul>
+  </div>
+	<!--This is the START of the footer-->
+	<div id="footer">
+		<div id="social-box">
+			<ul>
+				<li>
+					<div class="facebook"><a href="#"></a></div>
+				</li>
+				<li>
+					<div class="twitter"><a href="#"></a></div>
+				</li>
+				<li>
+					<div class="rss"><a href="#"></a></div>
+				</li>
+			</ul>
+		</div>
+		<h6>Copyright © 2011 - effe - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></h6>
+	</div>
+	<!--END of footer-->
+</div>
+<!--END of menu-->
+<!--This is the START of the content-->
+<div id="content">
+  <!--This is the START of the contact section-->
+  <div id="contact">
+    <h5 style="margin-top:10px;">Load in</h5>
+    <form name="contact" action="../static/scriptss/contact.php" id="contactform" method="post">
+      <div class="boxes">
+        <h6>name<span class="required">*</span></h6>
+        <div class="box">
+          <input name="name" type="text" class="input" id="sender_name" />
+        </div>
+        <h6>email<span class="required">*</span></h6>
+        <div class="box">
+          <input name="email" type="text" class="input" id="sender_email" />
+        </div>
+        <h6>password</h6>
+        <div class="password">
+          <input name="password" type="text" class="input" id="sender_password" />
+        </div>
+        <div class="submitbtn">
+          <input type="submit" class="button btncolor" onClick="MM_validateForm('sender_name','','R');MM_validateForm('sender_email','','RisEmail');MM_validateForm('sender_password','','R')" value="Load in" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div id="contactinfo">
+    <h5>Our adress is:</h5>
+    <p>Imaginary street 14</p>
+    <p>The windy City</p>
+    <p>1345 Post code</p>
+    <br />
+    <h5>Our contact info is:</h5>
+    <p>E: info@effe.com</p>
+    <p>T: (012) 345 678</p>
+    <p>F: (456) 847 854</p>
+    <br />
+    <div class="dribbble"><a href="#">Dribbble</a></div>
+    <div class="forrst"><a href="#">mail@effe.com</a></div>
+    <div class="google"><a href="#">Google +</a></div>
+    <div class="twitter_small"><a href="http://www.twitter.com">Follow on twitter</a></div>
+    <div class="facebook_small"><a href="http://www.facebook.com">Follow on facebook</a></div>
+   </div>
+  <!--END of contact section-->
+</div>
+
+<p class="slide"><a href="#" class="btn-slide"></a></p>
+<div id="slide-panel" style="display: none;">
+	<!--This is the START of the follow section-->
+<div>
+
+    <div id="playId" style=" margin-left: 20px; position: relative;float:left">
+                  <label>
+            <span>修改学期:</span>
+            <select name="select2" class="select2">
+                <option value="">大一上学期</option>
+                <option value="">大一下学期</option>
+                <option value="">大二上学期</option>
+                <option value="">大二下学期</option>
+				<option value="">大三上学期</option>
+				<option value="">大三下学期</option>
+				<option value="">大四上学期</option>
+				<option value="">大四下学期</option>
+            <!--色lect-->
+        
+    
+
+    
+       	    
+            修改周数:
+            </select>
+                <option value="">第一周</option>
+                <option value="">第二周</option>
+                <option value="">第三周</option>
+                <option value="">第四周</option>
+				<option value="">第五周</option>
+				<option value="">第六周</option>
+				<option value="">第七周</option>
+				<option value="">第八周</option>
+				<option value="">第九周</option>
+				<option value="">第十周</option>
+				<option value="">第十一周</option>
+				<option value="">第十二周</option>
+				<option value="">第十三周</option>
+				<option value="">第十四周</option>
+				<option value="">第十五周</option>
+			  <option value="">第十六周</option>
+				<option value="">第十七周</option>
+				<option value="">第十八周</option>
+				<option value="">第十九周</option>
+				<option value="">第二十周</option>
+            <!--色lect-->
+        </label>
+     </div>
+
+    <div id="totaltime" style=" margin-left:5px;text-align: center;position: relative;float:left" ;="">
+    </div>
+
+    <div id="fullVideoId" style="position: absolute;z-index: 1;&#10;    right: 20px;overflow: hidden;text-align: center;">
+        <a href="../课程查询.html">全校开课查询</a>
+    </div>
+
+   </div><br><br><br><table align="center" border="1">
+	
+	
+	<thead>
+	<tr>
+		<th colspan="8">大二上学期第四周</th>
+	</tr>
+	</thead>
+	<tbody><tr>
+		<th>9月</th>
+		<th>周一</th> 
+		<th>周二</th>
+		<th>周三</th>
+		<th>周四</th>
+		<th>周五</th>
+		<th>周六</th>
+		<th>周天</th>
+		
+	</tr>
+	</tbody><tbody>
+	<tr>
+		
+		<th>1</th>
+		<th rowspan="2">大学物理 <br>@立人楼B111</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>2</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>3</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>4</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>5</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>6</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>7</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>8</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>9</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>10</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>11</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+		<tr><th>12</th>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+    
+	</tbody>
+	<!--END of follow section-->
+</table></div>
+</div>
+</body>
+</html>
