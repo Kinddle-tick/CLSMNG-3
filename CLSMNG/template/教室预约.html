@@ -1,100 +1,334 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Effe - Contact Us</title>
-<link rel="shortcut icon" href="favicon.ico" />
-<!-- Load CSS -->
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<!-- Load Fonts -->
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
-<!-- Load jQuery library -->
-<script type="text/javascript" src="../static/scriptss/jquery-1.6.2.min.js"></script>
-<!-- Load custom js -->
-<script type="text/javascript" src="../static/scriptss/panelslide.js"></script>
-<script type="text/javascript" src="../static/scriptss/custom.js"></script>
-<!-- Load topcontrol js -->
-<script type="text/javascript" src="../static/scriptss/scrolltopcontrol.js"></script>
-<!-- Load NIVO Slider -->
-<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/nivo-theme.css" type="text/css" media="screen" />
-<script src="../static/scriptss/jquery.nivo.slider.pack.js" type="text/javascript"></script>
-<script src="../static/scriptss/nivo-options.js" type="text/javascript"></script>
-<!-- Load fancybox -->
-<script type="text/javascript" src="../static/scriptss/jquery.fancybox-1.3.4.pack.js"></script>
-<script type="text/javascript" src="../static/scriptss/jquery.easing-1.3.pack.js"></script>
-<script type="text/javascript" src="../static/scriptss/jquery.mousewheel-3.0.4.pack.js"></script>
-<link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-<!-- Load contact check -->
-<script type="text/javascript">
-function MM_validateForm() { //v4.0
-  if (document.getElementById){
-    var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
-    for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=document.getElementById(args[i]);
-      if (val) { nm=val.name; if ((val=val.value)!="") {
-        if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
-          if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
-        } else if (test!='R') { num = parseFloat(val);
-          if (isNaN(val)) errors+='- '+nm+' must contain a number.\n';
-          if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
-            min=test.substring(8,p); max=test.substring(p+1);
-            if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
-      } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
-    } if (errors) alert('We are sorry, but there is an error:\n'+errors);
-    document.MM_returnValue = (errors == '');
-} }
-</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>Fauxis - HTML 5 Template Preview</title>
+
+<!-- Fav Icon -->
+<link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<!-- Stylesheets -->
+<link href="static/css/font-awesome-all.css" rel="stylesheet">
+<link href="static/css/icomoon.css" rel="stylesheet">
+<link href="static/css/owl.css" rel="stylesheet">
+<link href="static/css/bootstrap.css" rel="stylesheet">
+<link href="static/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="static/css/animate.css" rel="stylesheet">
+<link href="static/css/color.css" rel="stylesheet">
+<link href="static/css/global.css" rel="stylesheet">
+<link href="static/css/style.css" rel="stylesheet">
+<link href="static/css/responsive.css" rel="stylesheet">
+
 </head>
+
+
+<!-- page wrapper -->
 <body>
-<!--This is the START of the header-->
-<div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
-<div id="header-wrapper">
-  <div id="header">
-    <div id="logo"><a href="index.html"><img src="images/UESTC logo.jpg" width="100" height="100" alt="logo" /></a></div>
-    <div id="header-text">
-      <h4>教室管理系统欢迎您！</h4>
-		<a style="color:#000000" href="index.html" >登录/</a>
-		<a style="color:#000000" href="index.html" >注册</a>
-    </div>
-  </div>
-</div>
-<!--END of header-->
-<!--This is the START of the menu-->
-<div id="menu-wrapper">
-  <div id="main-menu">
-    <ul>
-      <li><a href="index.html">主页</a></li>
-      <li><a href="课表.html">我的课表</a></li>
-      <li><a class="selected" href="教室预约.html">教室预约  →</a></li>
-      <li><a href="反馈.html">反馈</a></li>
-    </ul>
-  </div>
-	<!--This is the START of the footer-->
-	<div id="footer">
-		<div id="social-box">
-			<ul>
-				<li>
-					<div class="facebook"><a href="#"></a></div>
-				</li>
-				<li>
-					<div class="twitter"><a href="#"></a></div>
-				</li>
-				<li>
-					<div class="rss"><a href="#"></a></div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<!--END of footer-->
-</div>
-<!--END of menu-->
-<!--This is the START of the content-->
-<div id="content">
-  <!--This is the START of the contact section--><div id="contact">
-    <h5 style="margin-top:10px;">教室预约</h5>
-    <p>如果你想申请教室，请填写以下内容。</p>
-    <form name="contact" action="../网页模板/scripts/contact.php" id="contactform" method="post">
+
+    <div class="boxed_wrapper">
+
+
+        <!-- preloader -->
+        <div class="preloader">
+            <div class="boxes">
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <!-- preloader end -->
+
+
+        <!-- main header -->
+        <header class="main-header style-two">
+            <!-- header-top -->
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="top-inner clearfix">
+                        <ul class="info clearfix pull-left">
+                            <li><a href="index-2.html">About</a></li>
+                            <li><a href="index-2.html">Careers</a></li>
+                            <li><a href="index-2.html">Services</a></li>
+                            <li><a href="index-2.html">Our Stores</a></li>
+                        </ul>
+                        <ul class="header-social clearfix pull-right">
+                            <li>Connect Socially</li>
+                            <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="index-2.html"><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a href="index-2.html"><i class="fab fa-google-plus-g"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- header-upper -->
+            <div class="header-upper">
+                <div class="auto-container">
+                    <div class="upper-inner clearfix">
+                        <div class="logo-box pull-left">
+                            <figure class="logo"><a href="index.html"><img src="static/images/logo-2.png" alt=""></a></figure>
+                        </div>
+                        <ul class="upper-info clearfix pull-right">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h6>Store Location</h6>
+                                <h5>85 Twin City, NY</h5>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-volume"></i>
+                                <h6>Custom Orders</h6>
+                                <h5><a href="tel:1258985703">1-258-985-703</a></h5>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"></i>
+                                <h6>Store Opening Hours</h6>
+                                <h5>Mon Sat : 8am - 7pm</h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- header-lower -->
+            <div class="header-lower">
+                <div class="auto-container">
+                    <div class="lower-inner">
+                        <div class="outer-box clearfix">
+                            <div class="menu-area pull-left">
+                                <!--Mobile Navigation Toggler-->
+                                <div class="mobile-nav-toggler">
+                                    <i class="icon-bar"></i>
+                                    <i class="icon-bar"></i>
+                                    <i class="icon-bar"></i>
+                                </div>
+                                <nav class="main-menu navbar-expand-md navbar-light">
+                                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                        <ul class="navigation clearfix">
+                                            <li class="dropdown"><a href="index.html">Home</a>
+                                                <ul>
+                                                    <li><a href="index.html">Home Page 01</a></li>
+                                                    <li><a href="index-2.html">Home Page 02</a></li>
+                                                    <li><a href="index-onepage.html">OnePage Home</a></li>
+                                                    <li><a href="index-rtl.html">RTL Home</a></li>
+                                                    <li class="dropdown"><a href="index.html">Header Style</a>
+                                                        <ul>
+                                                            <li><a href="index.html">Header Style 01</a></li>
+                                                            <li><a href="index-2.html">Header Style 02</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown"><a href="index.html">Pages</a>
+                                                <ul>
+                                                    <li><a href="about.html">About Us</a></li>
+                                                    <li><a href="gallery-1.html">Gallery Page 01</a></li>
+                                                    <li><a href="gallery-2.html">Gallery Page 02</a></li>
+                                                    <li><a href="gallery-3.html">Gallery Page 03</a></li>
+                                                    <li><a href="error.html">404</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown"><a href="index.html">Services</a>
+                                                <ul>
+                                                    <li><a href="service.html">Our Services</a></li>
+                                                    <li><a href="service-details.html">Roller Blinds</a></li>
+                                                    <li><a href="service-details-2.html">Duplex Blinds</a></li>
+                                                    <li><a href="service-details-3.html">Venetian Blinds</a></li>
+                                                    <li><a href="service-details-4.html">Roman Blinds</a></li>
+                                                    <li><a href="service-details-5.html">Vertical Blinds</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown"><a href="index.html">Elements</a>
+                                                <div class="megamenu">
+                                                    <div class="row clearfix">
+                                                        <div class="col-xl-6 col-lg-12 col-md-12 column">
+                                                            <ul>
+                                                                <li><h4>Elements 1</h4></li>
+                                                                <li><a href="about-element-1.html">About Block 01</a></li>
+                                                                <li><a href="about-element-2.html">About Block 02</a></li>
+                                                                <li><a href="service-element-1.html">Service Block 01</a></li>
+                                                                <li><a href="service-element-2.html">Service Block 02</a></li>
+                                                                <li><a href="service-element-3.html">Service Block 03</a></li>
+                                                                <li><a href="feature-element-1.html">Feature Block 01</a></li>
+                                                                <li><a href="feature-element-2.html">Feature Block 02</a></li>
+                                                                <li><a href="feature-element-3.html">Feature Block 03</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-xl-6 col-lg-12 col-md-12 column">
+                                                            <ul>
+                                                                <li><h4>Elements 2</h4></li>
+                                                                <li><a href="shop-element-1.html">Shop Block 01</a></li>
+                                                                <li><a href="shop-element-2.html">Shop Block 02</a></li>
+                                                                <li><a href="news-element-1.html">News Block 01</a></li>
+                                                                <li><a href="news-element-2.html">News Block 02</a></li>
+                                                                <li><a href="working-element-1.html">Working Block 01</a></li>
+                                                                <li><a href="working-element-2.html">Working Block 02</a></li>
+                                                                <li><a href="chooseus-element.html">Chooseus Block</a></li>
+                                                                <li><a href="clients-element.html">Clients Block</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown"><a href="index.html">Blog</a>
+                                                <ul>
+                                                    <li><a href="blog-grid.html">Blog Grid</a></li>
+                                                    <li><a href="blog-list.html">Blog List</a></li>
+                                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="current"><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <ul class="menu-right-content pull-right clearfix">
+                                <li class="search-box-outer">
+                                    <div class="dropdown">
+                                        <button class="search-box-btn" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-search"></i></button>
+                                        <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu3">
+                                            <div class="form-container">
+                                                <form method="post" action="blog.html">
+                                                    <div class="form-group">
+                                                        <input type="search" name="search-field" value="" placeholder="Search...." required="">
+                                                        <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="support-box">
+                                    <a href="index-2.html">
+                                        <i class="icon-calendar"></i>
+                                        <h4>Free Consulting</h4>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--sticky Header-->
+            <div class="sticky-header">
+                <div class="auto-container">
+                    <div class="outer-box clearfix">
+                        <div class="menu-area pull-left">
+                            <nav class="main-menu clearfix">
+                                <!--Keep This Empty / Menu will come through Javascript-->
+                            </nav>
+                        </div>
+                        <ul class="menu-right-content pull-right clearfix">
+                            <li class="search-box-outer">
+                                <div class="dropdown">
+                                    <button class="search-box-btn" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-search"></i></button>
+                                    <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu4">
+                                        <div class="form-container">
+                                            <form method="post" action="blog.html">
+                                                <div class="form-group">
+                                                    <input type="search" name="search-field" value="" placeholder="Search...." required="">
+                                                    <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="support-box">
+                                <a href="index-2.html">
+                                    <i class="icon-calendar"></i>
+                                    <h4>Free Consulting</h4>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- main-header end -->
+
+
+
+
+
+        <!--Page Title-->
+        <section class="page-title" style="background-image: url(static/images/background/page-title.jpg);">
+            <div class="auto-container">
+                <div class="content-box">
+                    <div class="title">
+                        <h1>Contact Us</h1>
+                    </div>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="shape"></li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+
+
+        <!-- google-map-section -->
+        <section class="google-map-section">
+            <div class="map-inner">
+                <div class="google-map"
+                    id="contact-google-map"
+                    data-map-lat="40.712776"
+                    data-map-lng="-74.005974"
+                    data-icon-path="static/images/icons/map-marker.png"
+                    data-map-title="Brooklyn, New York, United Kingdom"
+                    data-map-zoom="12"
+                    data-markers='{
+                        "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","static/images/icons/map-marker.png"]
+                    }'>
+
+                </div>
+            </div>
+        </section>
+        <!-- google-map-section -->
+
+
+        <!-- contact-style-two -->
+        <section class="contact-style-two">
+            <div class="outer-container">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-column">
+                            <div class="inner-box">
+                                <div class="sec-title light">
+                                    <p>教室预约</p>
+                                    <div class="shape"></div>
+                                    <h2>请填写以下内容</h2>
+                                </div>
+ <form name="contact" action="../网页模板/scripts/contact.php" id="contactform" method="post">
       <div class="boxes">
         <h6>申请教室<span class="required">*</span></h6>
         <div class="box">
@@ -168,7 +402,7 @@ function MM_validateForm() { //v4.0
 				document.getElementById('zhezhao').style.display="none";
 			}
 		</script>
-		<br/ >  
+		<br/ >
 		 <div>
 			 <label>
             <input type="submit" class="button" value="查看我的申请">
@@ -178,26 +412,33 @@ function MM_validateForm() { //v4.0
       </div>
     </form>
   </div>
-  
-  <div id="contactinfo">
-    <h5>邮箱:</h5>
-    <p>xxxxxxxxxx@uestc.com</p>
-    <br />
-	<h5>电话:</h5>
-    <p>xxxx-xxxxxxx</p>
-    <br />
-	<h5>地址:</h5>
-    <p>电子科技大学清水河校区学知苑x栋xxx</p>
-    <br />
-   </div>
-  <!--END of contact section-->
-</div>
-<!--END of content-->
-<p class="slide"><a href="#" class="btn-slide"></a></p>
-<p class="slide"><a href="#" class="btn-slide"></a></p>
-<div id="slide-panel">
-	<!--This is the START of the follow section-->
-<table border="1px" align="center">
-    
-</body>
+        <!--Scroll to top-->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <span class="far fa-long-arrow-alt-up"></span>
+        </button>
+    </div>
+
+
+    <!-- jequery plugins -->
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/owl.js"></script>
+    <script src="static/js/wow.js"></script>
+    <script src="static/js/validation.js"></script>
+    <script src="static/js/jquery.fancybox.js"></script>
+    <script src="static/js/appear.js"></script>
+    <script src="static/js/scrollbar.js"></script>
+    <script src="static/js/bxslider.js"></script>
+    <script src="static/js/isotope.js"></script>
+
+    <!-- map script -->
+    <script src="http://www.google.cn/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
+    <script src="static/js/gmaps.js"></script>
+    <script src="static/js/map-helper.js"></script>
+
+    <!-- main-js -->
+    <script src="static/js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
 </html>

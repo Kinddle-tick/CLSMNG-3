@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import render
 
 urlpatterns = [
+    path('', lambda request: render(request, 'index.html')),
     path('admin/', admin.site.urls),
     path('ordercls/', include('ordercls.urls')),
     path('timetable/', include('timetable.urls')),
     path('monitor/', include('monitor.urls')),
+    path('users/', include('users.urls')),
+    path('<htmls>', lambda request,htmls: render(request, htmls))
 ]

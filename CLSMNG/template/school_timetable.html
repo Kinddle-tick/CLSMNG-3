@@ -1,0 +1,301 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>教室管理系统</title>
+    <!-- Load CSS -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css"/>
+    <!-- Load Fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic"
+          type="text/css"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css"/>
+    <!-- Load jQuery library -->
+    <script type="text/javascript" src="{% static "scripts/jquery-1.6.2.min.js" %}"></script>
+    <!-- Load custom js -->
+    <script type="text/javascript" src="{% static "scripts/panelslide.js" %}"></script>
+    <script type="text/javascript" src="{% static "scripts/custom.js" %}"></script>
+    <!-- Load topcontrol js -->
+    <script type="text/javascript" src="{% static "scripts/scrolltopcontrol.js" %}"></script>
+    <!-- Load NIVO Slider -->
+    <link rel="stylesheet" href="{% static "css/nivo-slider.css" %}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static "css/nivo-theme.css" %}" type="text/css" media="screen"/>
+    <script src="{% static "scripts/jquery.nivo.slider.pack.js" %}" type="text/javascript"></script>
+    <script src="{% static "scripts/nivo-options.js" %}" type="text/javascript"></script>
+    <!-- Load fancybox -->
+    <script type="text/javascript" src="{% static "scripts/jquery.fancybox-1.3.4.pack.js" %}"></script>
+    <script type="text/javascript" src="{% static "scripts/jquery.easing-1.3.pack.js" %}"></script>
+    <script type="text/javascript" src="{% static "scripts/jquery.mousewheel-3.0.4.pack.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css/jquery.fancybox-1.3.4.css" %}" type="text/css" media="screen"/>
+</head>
+<body>
+<!--This is the START of the header-->
+<div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;"
+     title="Go to Top"></div>
+<div id="header-wrapper">
+    <div id="header">
+        <div id="logo"><a href="index.html"><img src="{% static "images/UESTC logo.jpg" %}" width="100" height="100"
+                                                 alt="logo"/></a></div>
+        <div id="header-text">
+            <h4>教室管理系统欢迎您！</h4>
+            <a style="color:#000000" href="{% url 'users:login' %}">登录/</a>
+            <a style="color:#000000" href="{% url 'users:register' %}">注册</a>
+        </div>
+    </div>
+</div>
+<!--END of header-->
+<!--This is the START of the menu-->
+<div id="menu-wrapper">
+    <div id="main-menu">
+        <ul>
+            <li><a class="selected" href="{% url 'timetable:index' %}">主页 →</a></li>
+            <li><a href="{% url 'timetable:school_timetable' %}">我的课表</a></li>
+            <li><a href="{% url 'timetable:order' %}">预约教室</a></li>
+            <li><a href={% url 'timetable:feedback' %}>反馈</a></li>
+        </ul>
+    </div>
+    <!--This is the START of the footer-->
+    <div id="footer">
+        <div id="social-box">
+            <ul>
+                <li>
+                    <div class="facebook"><a href="#"></a></div>
+                </li>
+                <li>
+                    <div class="twitter"><a href="#"></a></div>
+                </li>
+                <li>
+                    <div class="rss"><a href="#"></a></div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <!--END of footer-->
+</div>
+<!--END of menu-->
+<!--This is the START of the content-->
+<div id="content">
+    <div class="spacer"></div>
+    <div class="team-text">
+        <h2><a href="{% url 'timetable:search' %}">全校开课查询</a></h2>
+        <div class="star-divider"></div>
+        <h5>
+            <div>
+                <div id="playId"
+                     style=" margin-left: 20px; position: relative;float:left">
+                    <label>
+                        <span>修改学期:</span>
+                        <br/>
+                        <select name="select2" class="select2">
+                            <option value="">大一上学期</option>
+                            <option value="">大一下学期</option>
+                            <option value="">大二上学期</option>
+                            <option value="">大二下学期</option>
+                            <option value="">大三上学期</option>
+                            <option value="">大三下学期</option>
+                            <option value="">大四上学期</option>
+                            <option value="">大四下学期</option>
+                        </select>
+                    </label>
+                </div>
+                <label>
+                    <span>修改周数:</span>
+                    <br/>
+                    <select name="select2" class="select2">
+                        <option value="">第一周</option>
+                        <option value="">第二周</option>
+                        <option value="">第三周</option>
+                        <option value="">第四周</option>
+                        <option value="">第五周</option>
+                        <option value="">第六周</option>
+                        <option value="">第七周</option>
+                        <option value="">第八周</option>
+                        <option value="">第九周</option>
+                        <option value="">第十周</option>
+                        <option value="">第十一周</option>
+                        <option value="">第十二周</option>
+                        <option value="">第十三周</option>
+                        <option value="">第十四周</option>
+                        <option value="">第十五周</option>
+                        <option value="">第十六周</option>
+                        <option value="">第十七周</option>
+                        <option value="">第十八周</option>
+                        <option value="">第十九周</option>
+                        <option value="">第二十周</option>
+                    </select>
+                </label>
+
+
+            </div>
+        </h5>
+    </div>
+    <div class="spacer"></div>
+    <div class="about">
+        <table border="1px" align="center">
+            <thead>
+            <tr>
+                <th colspan="8">大二上学期第四周</th>
+            </tr>
+            </thead>
+            <tr>
+                <th>9月</th>
+                <th>周一</th>
+                <th>周二</th>
+                <th>周三</th>
+                <th>周四</th>
+                <th>周五</th>
+                <th>周六</th>
+                <th>周天</th>
+
+            </tr>
+            <tr>
+
+                <th>1</th>
+                <th rowspan="2">大学物理 <br/>@立人楼B111</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>4</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>6</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>7</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>8</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>9</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>10</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>11</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>12</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="spacer"></div>
+</div>
+<!--END of content-->
+<p class="slide"><a href="#" class="btn-slide"></a></p>
+<div id="slide-panel">
+    <!--This is the START of the follow section-->
+    <div id="follow">
+        <h3>Get Notified About My Newest Freebies & Upcoming Themes!</h3>
+        <h5>
+            <p>I do make some awesome freebies for you to use... All of them are FREE and pixel perfect!</p>
+            <p>Thanks for showing me the support by subscribing, and I'll try not to disappoint you...</p>
+        </h5>
+        <img class="star-divider" src="images/subscribe_divider.png"/> <a href="#">
+        <div id="follow-twitter"><img src="images/tweet_top.png"/>
+            <h4>Follow me on twitter</h4>
+        </div>
+    </a><a href="#">
+        <div id="follow-mail"><img src="images/mail_top.png"/>
+            <h4>Subscribe to my newsletter</h4>
+        </div>
+    </a>
+        <h1>Thanks for that!</h1>
+    </div>
+    <!--END of follow section-->
+</div>
+</body>
+</html>

@@ -26,7 +26,7 @@ SECRET_KEY = 'riyrlbo&5@p)e$u!njl-!5mgn7f__&og=24#@%&so1up5hdu^#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'ordercls.apps.OrderclsConfig',
     'timetable.apps.TimetableConfig',
     'monitor.apps.MonitorConfig',
+    'users.apps.UsersConfig',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -84,13 +86,20 @@ WSGI_APPLICATION = 'CLSMNG.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ddjh',
+        'USER': 'ddjh',
+        'PASSWORD': 'ddjhpassword',
+        'HOST': '10.1.1.100',
+        'PORT': '3306',
     }
 }
 
 
-# Password validation
+# Password validations
+
+
+
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -129,13 +138,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # the dir for command "python manage.py collectstatic"
-
 # BASE_DIR 是项目的绝对地址
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
+STATIC_ROOT = os.path.join(BASE_DIR, '../collect_static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'assets'),
 )
 
 
