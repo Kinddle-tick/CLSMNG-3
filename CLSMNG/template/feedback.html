@@ -1,117 +1,386 @@
 {% load bootstrap3 %}
-{% load static %}
-<!doctype html>
-<html>
-<head>
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>FeedBack</title>
-<!-- Load CSS -->
-<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
-<!-- Load Fonts -->
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
-<!-- Load jQuery library -->
-<script type="text/javascript" src="{% static "scripts/jquery-1.6.2.min.js" %}"></script>
-<!-- Load custom js -->
-<script type="text/javascript" src="{% static "scripts/panelslide.js" %}"></script>
-<script type="text/javascript" src="{% static "scripts/custom.js" %}"></script>
-<!-- Load topcontrol js -->
-<script type="text/javascript" src="{% static "scripts/scrolltopcontrol.js" %}"></script>
-<!-- Load NIVO Slider -->
-<link rel="stylesheet" href="{% static "css/nivo-slider.css" %}" type="text/css" media="screen" />
-<link rel="stylesheet" href="{% static "css/nivo-theme.css" %}" type="text/css" media="screen" />
-<script src="{% static "scripts/jquery.nivo.slider.pack.js" %}" type="text/javascript"></script>
-<script src="{% static "scripts/nivo-options.js" %}" type="text/javascript"></script>
-<!-- Load fancybox -->
-<script type="text/javascript" src="{% static "scripts/jquery.fancybox-1.3.4.pack.js" %}"></script>
-<script type="text/javascript" src="{% static "scripts/jquery.easing-1.3.pack.js" %}"></script>
-<script type="text/javascript" src="{% static "scripts/jquery.mousewheel-3.0.4.pack.js" %}"></script>
-<link rel="stylesheet" href="{% static "css/jquery.fancybox-1.3.4.css" %}" type="text/css" media="screen" />
 
-<!-- Load contact check -->
-<script type="text/javascript">
-function MM_validateForm() { //v4.0
-  if (document.getElementById){
-    var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
-    for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=document.getElementById(args[i]);
-      if (val) { nm=val.name; if ((val=val.value)!="") {
-        if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
-          if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
-        } else if (test!='R') { num = parseFloat(val);
-          if (isNaN(val)) errors+='- '+nm+' must contain a number.\n';
-          if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
-            min=test.substring(8,p); max=test.substring(p+1);
-            if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
-      } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
-    } if (errors) alert('We are sorry, but there is an error:\n'+errors);
-    document.MM_returnValue = (errors == '');
-} }
-</script>
-</head>
-<body>
-<!--This is the START of the header-->
-<div id="topcontrol" style="position: fixed; bottom: 5px; left: 960px; opacity: 1; cursor: pointer;" title="Go to Top"></div>
-<div id="header-wrapper">
-  <div id="header">
-    <div id="logo"><a href="{% url 'timetable:index' %}"><img src="{% static "images/UESTC logo.jpg" %}" width="100" height="100" alt="logo" /></a></div>
-    <div id="header-text">
-      <h4>教室管理系统欢迎您！</h4>
-		<a style="color:#000000" href="{% url 'timetable:index' %}" >登陆/</a>
-		<a style="color:#000000" href="{% url 'timetable:index' %}" >注册</a>
+{% block header %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <title>教室管理</title>
+        <!-- Fav Icon -->
+        <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+              rel="stylesheet">
+        <!-- Stylesheets -->
+        <link href="{% static 'css/font-awesome-all.css' %}" rel="stylesheet">
+        <link href="{% static 'css/icomoon.css' %}" rel="stylesheet">
+        <link href="{% static 'css/owl.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'css/jquery.fancybox.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+        <link href="{% static 'css/color.css' %}" rel="stylesheet">
+        <link href="{% static 'css/global.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+        <div class="boxed_wrapper">
+        <!-- preloader -->
+        <div class="preloader">
+            <div class="boxes">
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <!-- main header -->
+        <header class="main-header style-two">
+            <!-- header-top -->
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="top-inner clearfix">
+                        <ul class="info clearfix pull-left">
+                            <li><a href="{% url 'timetable:index' %}">电子科技大学教室管理系统</a></li>
+                            <li><a href="{% url 'users:login' %}">登录</a></li>
+                            <li><a href="{% url 'users:register' %}">注册</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+         <!-- header-lower -->
+            <div class="header-lower">
+                <div class="auto-container">
+                    <div class="lower-inner">
+                        <div class="outer-box clearfix">
+                            <div class="menu-area pull-left">
+                                <!--Mobile Navigation Toggler-->
+                                <div class="mobile-nav-toggler">
+                                    <i class="icon-bar"></i>
+                                    <i class="icon-bar"></i>
+                                    <i class="icon-bar"></i>
+                                </div>
+                                <nav class="main-menu navbar-expand-md navbar-light">
+                                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                        <ul class="navigation clearfix">
+                                            <li class="dropdown"><a href="{% url 'timetable:index' %}">主页</a>
+                                            </li>
+
+                                            <li class="dropdown"><a href="{% url 'timetable:kongjiaoshichakan' %}">空教室查看</a>
+                                            </li>
+
+                                            <li class="dropdown"><a href="{% url 'timetable:school_timetable' %}">我的课表</a>
+                                            </li>
+
+                                            <li class="dropdown"><a href="index.html">教室预约</a>
+                                                <div class="megamenu">
+                                                    <div class="row clearfix">
+                                                        <div class="col-xl-6 col-lg-12 col-md-12 column">
+                                                            <ul>
+                                                                <li><h4>品学楼</h4></li>
+                                                                <li><a href="about-element-1.html">品学楼A</a></li>
+                                                                <li><a href="about-element-2.html">品学楼B</a></li>
+                                                                <li><a href="service-element-1.html">品学楼C</a></li>
+
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-xl-6 col-lg-12 col-md-12 column">
+                                                            <ul>
+                                                                <li><h4>立人楼</h4></li>
+                                                                <li><a href="shop-element-1.html">立人楼A</a></li>
+                                                                <li><a href="shop-element-2.html">立人楼B</a></li>
+                                                                <li><a href="news-element-1.html">立人楼C</a></li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="dropdown"><a href="{% url 'timetable:order' %}">我的申请</a>
+                                            </li>
+
+                                            <li class="dropdown"><a href="{% url 'timetable:feedback' %}">用户反馈</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <ul class="menu-right-content pull-right clearfix">
+                                <li class="search-box-outer">
+                                    <div class="dropdown">
+                                        <button class="search-box-btn" type="button" id="dropdownMenu3"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                                class="far fa-search"></i></button>
+                                        <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu3">
+                                            <div class="form-container">
+                                                <form method="post" action="blog.html">
+                                                    <div class="form-group">
+                                                        <input type="search" name="search-field" value=""
+                                                               placeholder="Search...." required="">
+                                                        <button type="submit" class="search-btn"><span
+                                                                class="fas fa-search"></span></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--sticky Header-->
+            <div class="sticky-header">
+                <div class="auto-container">
+                    <div class="outer-box clearfix">
+                        <div class="menu-area pull-left">
+                            <nav class="main-menu clearfix">
+                                <!--Keep This Empty / Menu will come through Javascript-->
+                            </nav>
+                        </div>
+                        <ul class="menu-right-content pull-right clearfix">
+                            <li class="search-box-outer">
+                                <div class="dropdown">
+                                    <button class="search-box-btn" type="button" id="dropdownMenu4"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                            class="far fa-search"></i></button>
+                                    <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu4">
+                                        <div class="form-container">
+                                            <form method="post" action="blog.html">
+                                                <div class="form-group">
+                                                    <input type="search" name="search-field" value=""
+                                                           placeholder="Search...." required="">
+                                                    <button type="submit" class="search-btn"><span
+                                                            class="fas fa-search"></span></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- main-header end -->
+
+        <!--Page Title-->
+        <section class="page-title" style="background-image: url(footer-logo.png);">
+            <div class="auto-container">
+                <div class="content-box">
+                    <div class="title">
+                        <h1>教室管理系统</h1>
+                    </div>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="feedback.html">反馈</a></li>
+                        <li class="shape"></li>
+                        <li>填写反馈表</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+
+
+        <!-- about-section -->
+<section class="contact-style-two">
+            <div class="outer-container">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-column">
+                            <div class="inner-box">
+                                <div class="sec-title light">
+                                    <p>反馈</p>
+                                    <div class="shape"></div>
+                                </div>
+                                <div class="form-inner">
+                                    <form method="post" action="sendemail.php" id="contact-form" class="default-form">
+                                        <div class="row clearfix">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                                <input type="text" name="username" placeholder="姓名 *" required="">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                                <input type="email" name="email" placeholder="电子邮箱 *" required="">
+                                            </div>
+                                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                                <input type="text" name="phone" required="" placeholder="电话号码 *">
+                                            </div>
+                                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                                <input type="text" name="subject" required="" placeholder="学号 *">
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                                <textarea name="message" placeholder="反馈内容..."></textarea>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                                <button class="theme-btn-one" onclick="upload.click()" >附件</button>
+                                                <input type="file" name="upload" id="upload" style="display: none;" />
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                                <button class="theme-btn-one" type="submit" name="submit-form">提交</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 info-column">
+                            <div class="info-box">
+                                <h3>我们的联系方式</h3>
+                                <ul class="info clearfix">
+                                    <li>
+                                        <i class="fal fa-map-marker"></i>
+                                        <p>工作室</p>
+                                        <h4>八块石头工作坊</h4>
+                                    </li>
+                                    <li>
+                                        <i class="fal fa-phone"></i>
+                                        <h4><span>电话</span><a href="tel:1258985703">185#######</a></h4>
+                                    </li>
+                                    <li>
+                                        <i class="fal fa-envelope-open"></i>
+                                        <h4><span>电子邮箱</span><a href="mailto:info@example.com">17#######</a></h4>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- main-footer -->
+        <footer class="main-footer">
+            <div class="footer-top">
+                <figure class="vector-image"><img src="{% static 'images/resource/vector-image-4.png' %}" alt=""></figure>
+                <div class="auto-container">
+                    <div class="widget-section">
+                        <div class="row clearfix">
+                            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                                <div class="footer-widget logo-widget">
+                                    <div class="footer-logo">
+                                        <figure class="logo"><a href="index.html"><img
+                                                src="{% static 'images/uestc.png' %}" alt=""></a></figure>
+                                        <p>联系我们</p>
+                                    </div>
+                                    <div class="text">
+                                        <p>如果你有任何意见或建议，或者是寻求合作，请联系我们</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                                <div class="footer-widget links-widget ml-100">
+                                    <div class="widget-title">
+                                        <h3>院系</h3>
+                                        <div class="shape"></div>
+                                    </div>
+                                    <div>
+                                            <li>信息与通信工程学院</li>
+											<li>网络工程专业</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                                <div class="footer-widget links-widget ml-70">
+                                    <div class="widget-title">
+                                        <h3>联系方式</h3>
+                                        <div class="shape"></div>
+                                    </div>
+                                    <div class="widget-content">
+                                            <li>联系电话：185#########</li>
+                                            <li>邮箱：17########</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                                <div class="footer-widget newsletter-widget">
+                                    <div class="widget-title">
+                                        <h3>地址</h3>
+                                        <div class="shape"></div>
+                                    </div>
+                                    <div class="widget-content">
+                                            <li>电子科技大学清水河校区</li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="copyright centred">
+                        <p>(&copy;) 电子科技大学教室管理系统 </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- main-footer end -->
+
+
+        <!--Scroll to top-->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <span class="far fa-long-arrow-alt-up"></span>
+        </button>
     </div>
-  </div>
-</div>
-<!--END of header-->
-<!--This is the START of the menu-->
-<div id="menu-wrapper">
-	<div id="main-menu">
-		<ul>
-			<li><a class="selected" href="{% url 'timetable:index' %}">主页 →</a></li>
-        <li><a href="{% url 'timetable:school_timetable' %}">我的课表</a></li>
-        <li><a href="{% url 'timetable:order' %}">预约教室</a></li>
-        <li><a href={% url 'timetable:feedback' %}>反馈</a></li>
-		</ul>
-	</div>
-	<!--END of footer-->
-</div>
-<!--END of menu-->
-<!--This is the START of the content-->
-<div id="content">
-  <!--This is the START of the contact section--><div id="contact">
-    <h5 style="margin-top:10px;">反馈</h5>
-    <p>如果您想向我们反馈相关信息，请使用此表格，我们将很快给您答复！</p>
-    <form action="{% url 'timetable:feedback' %}" method="post" >
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <label>
-            <a href="{% url 'timetable:index' %}">
-            <input type="button" class="button2" value="返回上一级" >
-            </a>
-			<br /><br />
-			<input type="submit" class="button3" value="提交">
-			<br /><br />
-        </label>
-    </form>
-  </div>
-  
-  <div id="contactinfo">
-    <h5>邮箱:</h5>
-    <p>xxxxxxxxxx@uestc.com</p>
-    <br />
-	<h5>电话:</h5>
-    <p>xxxx-xxxxxxx</p>
-    <br />
-	<h5>地址:</h5>
-    <p>电子科技大学清水河校区学知苑x栋xxx</p>
-    <br />
-   </div>
-  <!--END of contact section-->
-</div>
-<!--END of content-->
-<p class="slide"><a href="#" class="btn-slide"></a></p>
-<p class="slide"><a href="#" class="btn-slide"></a></p>
+    </head>
+{% endblock header %}
 
-</body>
-</html>
+{% block content %}
+    <body>
+
+
+
+
+    <!-- jequery plugins -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.js' %}"></script>
+    <script src="{% static 'js/wow.js' %}"></script>
+    <script src="{% static 'js/validation.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.js' %}"></script>
+    <script src="{% static 'js/appear.js' %}"></script>
+    <script src="{% static 'js/scrollbar.js' %}"></script>
+    <script src="{% static 'js/bxslider.js' %}"></script>
+
+    <!-- map script -->
+    <script src="http://www.google.cn/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
+    <script src="{% static 'js/gmaps.js' %}"></script>
+    <script src="{% static 'js/map-helper.js' %}"></script>
+
+    <!-- main-js -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    </body><!-- End of .page_wrapper -->
+
+{% endblock content %}

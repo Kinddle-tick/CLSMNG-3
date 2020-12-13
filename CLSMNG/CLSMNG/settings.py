@@ -43,6 +43,11 @@ INSTALLED_APPS = [
     'monitor.apps.MonitorConfig',
     'users.apps.UsersConfig',
     'bootstrap3',
+
+    # 我的应用程序
+    'timetable',
+    'users',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -83,18 +88,18 @@ WSGI_APPLICATION = 'CLSMNG.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ddjh',
-        'USER': 'ddjh',
-        'PASSWORD': 'ddjhpassword',
-        'HOST': '10.1.1.100',
-        # 'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
-}
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ddjh',
+#         'USER': 'ddjh',
+#         'PASSWORD': 'ddjhpassword',
+#         'HOST': '10.1.1.100',
+#         # 'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validations

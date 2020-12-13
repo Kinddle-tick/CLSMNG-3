@@ -21,9 +21,9 @@ urlpatterns = [
     path('', lambda request: render(request, 'index.html')),
     path('admin/', admin.site.urls),
     path('ordercls/', include('ordercls.urls')),
-    path('timetable/', include('timetable.urls')),
+    path('timetable/', include('timetable.urls'),namespace='timetable'),
     # re_path('.*/static/(?P<name>)', lambda request, path:redirect('static/'+path)),
     path('monitor/', include('monitor.urls')),
-    path('users/', include('users.urls')),
+    path('users/', include('users.urls'),namespace='users'),
     path('<htmls>', lambda request, htmls: render(request, htmls))
 ]
