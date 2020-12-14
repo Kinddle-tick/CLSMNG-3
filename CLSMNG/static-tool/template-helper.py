@@ -6,7 +6,7 @@ import re, os
 def fun(path, patterns:list):
     # path为待修改的文件路径 匹配类似于herf="\static\..."的相对地址， 修改为herf="{% static '...'%}" 其中herf可以修改为src等
     for pattern in patterns:
-        with open(path, 'r+') as F:
+        with open(path, 'r+', encoding='utf-8') as F:
             file_tmp=""
             for line in F:
                 chgset=re.findall(pattern+"=\"static.*?\"", line)

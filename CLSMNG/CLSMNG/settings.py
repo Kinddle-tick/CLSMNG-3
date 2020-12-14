@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'monitor.apps.MonitorConfig',
     'users.apps.UsersConfig',
     'bootstrap3',
+
 ]
 
 MIDDLEWARE = [
