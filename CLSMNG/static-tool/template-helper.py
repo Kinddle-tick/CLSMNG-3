@@ -9,6 +9,7 @@ def fun(path, patterns:list):
         with open(path, 'r+', encoding='utf-8') as F:
             file_tmp=""
             for line in F:
+                print(line)
                 chgset=re.findall(pattern+"=\"static.*?\"", line)
                 if len(chgset)!=0:
                     chgset = chgset[0]

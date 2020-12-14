@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 from django.views.static import serve
 
-app_name='timetable'
+app_name='time_table'
 urlpatterns = [
 # 主页
     url(r'^$', views.index, name='index'),
@@ -19,7 +19,7 @@ urlpatterns = [
     # url(r'^order/$',views.order,name = 'order'),
     url(r'^search/$',views.search,name = 'search'),
     url(r'^school_timetable/$',views.school_timetable,name = 'school_timetable'),
-    url(r'^(?P<path>.*)$', serve, {'document_root': 'timetable/templates/timetable/assets'}),
+    #url(r'^(?P<path>.*)$', serve, {'document_root': 'timetable/templates/timetable/static'}),
 
 
 ]

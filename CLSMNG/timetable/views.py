@@ -104,8 +104,10 @@ def index(request):
 #     return render(request, 'feedback.html',context)
 
 @login_required
-def find2(request):
-    return  render(request,'find2.html')
+def kongjiaoshichakan(request):
+    return  render(request,'kongjiaoshichakan.html')
+
+
 
 @login_required
 def find3(request):
