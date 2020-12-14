@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'monitor.apps.MonitorConfig',
     'users.apps.UsersConfig',
     'bootstrap3',
-
     # 我的应用程序
     'timetable',
     'users',
