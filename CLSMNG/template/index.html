@@ -3,9 +3,9 @@
 {% extends "base.html" %}
 {% block section%}
         <!-- about-section -->
-        <section class="about-section">
-            <div class="auto-container">
-                <div class="row clearfix">
+<!--        <section class="about-section">-->
+<!--            <div class="auto-container">-->
+                <div class="row clearfix" style="padding: 133px">
                     <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                         <div class="content_block_1">
                             <div class="content-box">
@@ -18,7 +18,7 @@
                                     <p>依托于顶点计划，由徐世中、杨宁、段景山、任婧、杨炼等老师为指导，致力于用所学让生活更加便捷、美好。教室管理项目致力于解决教室预约麻烦、自习找教室难等问题，现由卓娜娜、李明璐、袁也、邓宇辰、宋园祺五人组成小组，结合互联网等技术解决现有痛点。</p>
                                 </div>
                                 <div class="inner-box">
-                                    <figure class="vector-image"><img src="static/images/resource/vector-image-1.png"
+                                    <figure class="vector-image"><img src="{% static 'images/resource/vector-image-1.png' %}"
                                                                       alt=""></figure>
                                     <div class="inner clearfix">
                                         <ul class="list-item">
@@ -38,20 +38,20 @@
                         <div class="image_block_1">
                             <div class="image-box ml-55">
                                 <figure class="vector-image rotate-me"><img
-                                        src="static/images/resource/vector-image-2.png" alt=""></figure>
+                                        src="{% static 'images/resource/vector-image-2.png' %}" alt=""></figure>
                                 <div class="image-pattern">
                                     <div class="pattern-1"></div>
                                     <div class="pattern-2"></div>
                                     <div class="pattern-3"></div>
                                     <div class="pattern-4"></div>
                                 </div>
-                                <figure class="image"><img src="static/title1.jpg" alt=""></figure>
+                                <figure class="image"><img src="{% static 'images/title1.jpg' %}" alt=""></figure>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+<!--            </div>-->
+<!--        </section>-->
 {% endblock%}
 </head>
 </html>

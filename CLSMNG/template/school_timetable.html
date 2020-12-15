@@ -3,13 +3,12 @@
 {% extends "base.html" %}
 {% block section%}
         <!-- about-section -->
-        <div >
-
+	       <section class="about-section"><div class="auto-container">
+<div >
     <div id="playId"
         style=" margin-left: 20px; position: relative;float:left">
          <label>
             <span>修改学期:</span>
-
             <select name="select2" class="select2">
                 <option value="">大一上学期</option>
                 <option value="">大一下学期</option>
@@ -21,7 +20,6 @@
 				<option value="">大四下学期</option>
             </select>
         </label>
-    </div>
 		 <label>
             <span>修改周数:</span>
             <select name="select2" class="select2">
@@ -47,160 +45,156 @@
 				<option value="">第二十周</option>
             </select>
         </label>
+	  <div class="spacer"></div>
+	  <div class="about">
+		<table border="1px" align="center">
+		<thead>
+		<tr>
+	<!--item.name：第几学期第几周-->
+			<div class="text" style=" text-align:center;">{{item.name}}</div>
+		</tr>
+		</thead>
+		<tr>
+	<!--item.name：几月-->
+			<th>{{item.name}}</th>
+			<th>周一</th>
+			<th>周二</th>
+			<th>周三</th>
+			<th>周四</th>
+			<th>周五</th>
+			<th>周六</th>
+			<th>周天</th>
 
+		</tr>
+		<tr>
 
-
-   </div></h5>
-  </div>
-  <div class="spacer"></div>
-  <div class="about">
-<table border="1px" align="center">
-	<thead>
-	<tr>
-<!--item.name：第几学期第几周-->
-		<div class="text" style=" text-align:center;">{{item.name}}</div>
-
-	</tr>
-	</thead>
-	<tr>
-<!--item.name：几月-->
-		<th>{{item.name}}</th>
-		<th>周一</th>
-		<th>周二</th>
-		<th>周三</th>
-		<th>周四</th>
-		<th>周五</th>
-		<th>周六</th>
-		<th>周天</th>
-
-	</tr>
-	<tr>
-
-		<th>1</th>
-<!--{#        item.name：课程名 课程地点#}-->
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>2</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>3</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>4</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>5</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>6</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>7</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>8</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>9</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>10</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>11</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-		<tr>
-		<th>12</th>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.name}}</td>
-	</tr>
-	</table>
-  </div>
-  <div class="spacer"></div>
+			<th>1</th>
+	<!--{#        item.name：课程名 课程地点#}-->
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>2</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>3</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>4</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>5</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>6</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>7</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>8</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>9</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>10</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>11</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+			<tr>
+			<th>12</th>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.name}}</td>
+		</tr>
+		</table>
+	  </div>
+	  <div class="spacer"></div>
+	</div>
 </div>
 
+		   </div>></section>
+
 {% endblock%}
-</head>
 </html>

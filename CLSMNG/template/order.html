@@ -3,94 +3,90 @@
 {% extends "base.html" %}
 {% block section%}
    <!-- about-section -->
-        <section class="contact-style-two">
-            <div class="outer-container">
-                <div class="auto-container">
-                    <div class="row clearfix">
-                        <div class="col-lg-6 col-md-12 col-sm-12 form-column">
-                            <div class="inner-box">
-                                <div class="sec-title light">
-                                    <p>教室预约</p>
-                                    <div class="shape"></div>
-                                    <h2>请填写以下内容</h2>
-                                </div>
- <form name="contact" action="../网页模板/scripts/contact.php" id="contactform" method="post">
-      <div class="boxes">
-        <h6>申请教室<span class="required">*</span></h6>
-        <div class="box">
-          <!--<input name="name" type="text" class="input" id="sender_name" />-->
-			<select  type="text" class="input" id="：sender_name">
-                <option value="">品学楼A101</option>
-                <option value="">品学楼A102</option>
-                <option value="">品学楼A103</option>
-                <option value="">品学楼A104</option>
-            </select>
-        </div>
-        <h6>申请时间<span class="required">*</span></h6>
-        <div class="box">
-           <select id="sender_name">
-                <option value="">第一，二节课</option>
-                <option value="">第三，四节课</option>
-                <option value="">第五，六节课</option>
-                <option value="">第七，八节课</option>
-            </select>
-        </div>
-		 <h6>申请理由<span class="required">*</span></h6>
-        <div class="box">
-           <select  id="sender_name">
-                <option value="">班级自习</option>
-                <option value="">班级活动</option>
-                <option value="">部门活动</option>
-                <option value="">老师调课</option>
-            </select>
-        </div>
-		<h6>申请单位<span class="required">*</span></h6>
-        <div class="box">
-          <input name="input" type="text" class="input" id="sender_email" />
-        </div>
-		<h6>是否可拼教室<span class="required">*</span></h6>
-        <div class="box">
-           <select id="sender_name">
+<div class="row clearfix">
+    <div class="col-lg-6 col-md-12 col-sm-12 form-column">
+        <div class="inner-box">
+            <div class="sec-title">
+                <p>教室预约</p>
+<!--                <div class="shape"></div>-->
+                <h2>请填写以下内容</h2>
+            </div>
+            <form name="contact" action="../网页模板/scripts/contact.php" id="contactform" method="post">
+              <div class="boxes">
+                <h6>申请教室<span class="required">:</span></h6>
+                <div class="box">
+                  <!--<input name="name" type="text" class="input" id="sender_name" />-->
+                    <select  type="text" class="input" id="：sender_name">
+                        <option value="">品学楼A101</option>
+                        <option value="">品学楼A102</option>
+                        <option value="">品学楼A103</option>
+                        <option value="">品学楼A104</option>
+                    </select>
+                </div>
+                <h6>申请时间<span class="required">:</span></h6>
+                <div class="box">
+                   <select id="sender_name">
+                        <option value="">第一，二节课</option>
+                        <option value="">第三，四节课</option>
+                        <option value="">第五，六节课</option>
+                        <option value="">第七，八节课</option>
+                    </select>
+                </div>
+                 <h6>申请理由<span class="required">:</span></h6>
+                <div class="box">
+                   <select  id="sender_name">
+                        <option value="">班级自习</option>
+                        <option value="">班级活动</option>
+                        <option value="">部门活动</option>
+                        <option value="">老师调课</option>
+                    </select>
+                </div>
+                <h6>申请单位<span class="required">:</span></h6>
+                <div class="box">
+                  <input name="input" type="text" class="input" id="sender_email" />
+                </div>
+                <h6>是否可拼教室<span class="required">:</span></h6>
+                <div class="box">
+                   <select id="sender_name">
 
-			   <option value="">是</option>
-			    <option value="">否</option>
-            </select>
+                       <option value="">是</option>
+                        <option value="">否</option>
+                    </select>
+                </div>
+                <!--
+                <h6>申请进度</h6>
+                <div class="msgbox">
+                  <textarea name="cf_message" rows="50" cols="30" class="message" id="cf_message"></textarea>
+                </div>
+
+                <div class="submitbtn">
+                  <input type="submit" class="button btncolor" onClick="MM_validateForm('sender_name','','R');MM_validateForm('sender_email','','RisEmail');return document.MM_returnValue" value="Send Message" />
+                </div>
+                  -->
+                <input type="text" class="button" onclick="dianwo()" value="提交申请">
+                <br/>
+                <div class="zhezhao" id='zhezhao'>
+                    <div class="tankuang">
+                        <div id="header">
+                            <span>success</span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    document.getElementById('zhezhao').style.display="none";
+                    function dianwo(){
+                        document.getElementById('zhezhao').style.display="";
+                    }
+                    function hidder(){
+                        document.getElementById('zhezhao').style.display="none";
+                    }
+                </script>
+                <br/>
+              </div>
+            </form>
         </div>
-		<!--
-        <h6>申请进度</h6>
-        <div class="msgbox">
-          <textarea name="cf_message" rows="50" cols="30" class="message" id="cf_message"></textarea>
-        </div>
-
-        <div class="submitbtn">
-          <input type="submit" class="button btncolor" onClick="MM_validateForm('sender_name','','R');MM_validateForm('sender_email','','RisEmail');return document.MM_returnValue" value="Send Message" />
-        </div>
-		  -->
-		<input type="text" class="button" onclick="dianwo()" value="提交申请">
-		<br/>
-		<div class="zhezhao" id='zhezhao'>
-			<div class="tankuang">
-				<div id="header">
-					<span>success</span>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			document.getElementById('zhezhao').style.display="none";
-			function dianwo(){
-				document.getElementById('zhezhao').style.display="";
-			}
-			function hidder(){
-				document.getElementById('zhezhao').style.display="none";
-			}
-		</script>
-		<br/ >
-
-      </div>
-    </form>
-  </div>
-
-
+    </div>
+</div>
 {% endblock%}
 </head>
 </html>
