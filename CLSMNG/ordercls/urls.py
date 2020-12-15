@@ -11,5 +11,6 @@ urlpatterns =[
     path('inquiry/', views.inquiry, name='inquiry'),
     path('feedback/', views.feedback, name='feedback'),
     path('order/', views.order, name='order'),
-    path('my_request/', views.my_request,name='my_request')
+    path('my_request/', views.my_request,name='my_request'),
+    path("init/", views.init),
 ]

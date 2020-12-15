@@ -3,22 +3,7 @@
 {% extends "base.html" %}
 {% block section%}
             <!-- about-section -->
-<section class="contact-section">
-      <div class="pattern-layer">
-           <div class="pattern-1"></div>
-           <div class="pattern-2"></div>
-      </div>
-  <div class="outer-container pb-150 clearfix">
-     <div class="left-column pull-left clearfix">
-      <div class="form-column">
-       <div class="content-box">
-             <div class="sec-title light">
-                     <p>空教室查看</p>
-                      <div class="shape"></div>
-                           <h2>空教室查看</h2>
-                      </div>
-        <div class="form-inner">
-		  <style>
+	<style>
 	        body,select{
 		        font-size:9pt;
 		        font-family:Verdana;
@@ -86,49 +71,68 @@
    }
    //-->
    </SCRIPT>
-
-<div class="row clearfix">
-    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-        <div class="content_block_1">
-            <div class="content-box">
-                <div class="sec-title">
-                    <div bgcolor="#E0E0E0" onload="setup()">
-                       <div style="color:white;font-size:20px">教室查询筛选：</div>
-                       <form name="frm">
-                            <select id="s1"><option>楼栋</option></select>
-                            <select id="s2"><option>区域</option></select>
-                            <select id="s3"><option>楼层</option></select>
-                       </form>
-                       <table border="1px" align="center">
-                            <tr>
-                                <th><div style="color:white;font-size:20px">教室</div></th>
-                                <th><div style="color:white;font-size:20px">使用情况</div></th>
-                            </tr>
-                    <!--{#room.name：教室号；room.num1/room.num2：实际使用人数/可用人数#}-->
-                        {% for room.name,room.num1,room.num2 in ls %}
-                            <th><div style="color:white;font-size:20px">{{room.name}}</div> </th>
-                            <th><div style="color:white;font-size:20px">{{room.num}}/{{room.num}}</div></th>
-                        {% endfor %}
-	                    </table>
+<section class="contact-section">
+            <div class="title-text"><h1>Fauxis</h1></div>
+            <div class="pattern-layer">
+                <div class="pattern-1"></div>
+                <div class="pattern-2"></div>
+            </div>
+            <div class="outer-container pb-150 clearfix">
+                <div class="left-column pull-left clearfix">
+                    <div class="form-column">
+                        <div class="content-box">
+                            <div class="sec-title light">
+                                <p>空教室查看</p>
+                                <div class="shape"></div>
+                                <h2>空教室查看</h2>
+                            </div>
+                            <div class="form-inner">
+                                <form action="index.html" method="post">
+                                    <div class="form-group">
+                                        <div style="color:white;font-size:20px">教室查询筛选：</div>
+                                        <form name="frm">
+                                            <select id="s1"><option>楼栋</option></select>
+                                            <select id="s2"><option>区域</option></select>
+                                            <select id="s3"><option>楼层</option></select>
+											<select name="select" class="select">
+														<option value="">教室借用情况</option>
+														<option value="">空闲</option>
+														<option value="">有课</option>
+														<option value="">有条</option>
+														<option value="">借出</option>
+														<option value="">可拼</option>
+											</select>
+                                        </form>
+                                    </div>
+                                    <div class="form-group">
+                                        <table border="1px" align="left">
+                                            <tr>
+                                                <th><div style="color:white;font-size:15px">教室</div></th>
+                                                <th><div style="color:white;font-size:15px">使用人数</div></th>
+								                <th><div style="color:white;font-size:15px">教室借用情况</div></th>
+                                            </tr>
+                    <!--{#room.name：教室号；room.num1/room.num2：实际使用人数/可用人数；room.state：教室借用情况#}-->
+                                            {% for room.name,room.num1,room.num2,room.state in ls %}
+                                            <th><div style="color:white;font-size:15px">{{room.name}}</div> </th>
+                                            <th><div style="color:white;font-size:15px">{{room.num}}/{{room.num}}</div></th>
+										    <th><div style="color:white;font-size:15px">{{room.state}}</div></th>
+                                            {% endfor %}
+	                                    </table>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-         </div>
-        </div>
-       </div>
-      </div>
                 <div class="right-column pull-left">
                     <div class="map-inner">
-                        <div class="google-map"
-                            id="contact-google-map"
-                            data-map-lat="40.712776"
-                            data-map-lng="-74.005974"
-                            data-icon-path="assets/images/icons/map-marker.png"
-                            data-map-title="Brooklyn, New York, United Kingdom"
-                            data-map-zoom="12"
+                        <div class="google-map" 
+                            id="contact-google-map" 
+                            data-map-lat="40.712776" 
+                            data-map-lng="-74.005974" 
+                            data-icon-path="assets/images/icons/map-marker.png"  
+                            data-map-title="Brooklyn, New York, United Kingdom" 
+                            data-map-zoom="12" 
                             data-markers='{
                                 "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","assets/images/icons/map-marker.png"]
                             }'>
@@ -145,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-  </div>
+            </div>
 </section>
 
 {% endblock%}
