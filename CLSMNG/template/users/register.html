@@ -9,7 +9,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button name = "submit">register</button>
-    <input type ='hidden' name = "next" value = "{% url 'timetable:index' %}" />
+    <input type ='hidden' name = "next" value = "{% url 'index' %}" />
   </form>
 
 {% endblock content %}

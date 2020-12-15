@@ -2,199 +2,90 @@
 <head>
 {% extends "base.html" %}
 {% block section%}
+
         <!-- about-section -->
-	       <section class="about-section"><div class="auto-container">
-<div >
-    <div id="playId"
-        style=" margin-left: 20px; position: relative;float:left">
-         <label>
-            <span>修改学期:</span>
-            <select name="select2" class="select2">
-                <option value="">大一上学期</option>
-                <option value="">大一下学期</option>
-                <option value="">大二上学期</option>
-                <option value="">大二下学期</option>
-				<option value="">大三上学期</option>
-				<option value="">大三下学期</option>
-				<option value="">大四上学期</option>
-				<option value="">大四下学期</option>
-            </select>
-        </label>
-		 <label>
-            <span>修改周数:</span>
-            <select name="select2" class="select2">
-                <option value="">第一周</option>
-                <option value="">第二周</option>
-                <option value="">第三周</option>
-                <option value="">第四周</option>
-				<option value="">第五周</option>
-				<option value="">第六周</option>
-				<option value="">第七周</option>
-				<option value="">第八周</option>
-				<option value="">第九周</option>
-				<option value="">第十周</option>
-				<option value="">第十一周</option>
-				<option value="">第十二周</option>
-				<option value="">第十三周</option>
-				<option value="">第十四周</option>
-				<option value="">第十五周</option>
-			  <option value="">第十六周</option>
-				<option value="">第十七周</option>
-				<option value="">第十八周</option>
-				<option value="">第十九周</option>
-				<option value="">第二十周</option>
-            </select>
-        </label>
-	  <div class="spacer"></div>
-	  <div class="about">
-		<table border="1px" align="center">
-		<thead>
-		<tr>
-	<!--item.name：第几学期第几周-->
-			<div class="text" style=" text-align:center;">{{item.name}}</div>
-		</tr>
-		</thead>
-		<tr>
-	<!--item.name：几月-->
-			<th>{{item.name}}</th>
-			<th>周一</th>
-			<th>周二</th>
-			<th>周三</th>
-			<th>周四</th>
-			<th>周五</th>
-			<th>周六</th>
-			<th>周天</th>
+<section class="about-section">
+	<div class="auto-container">
+		<div >
+			<div id="playId"
+				style=" margin-left: 20px; position: relative;">
+				 <label>
+					<span>修改学期:</span>
+					<select name="select2" class="select2">
+						<option value="">大一上学期</option>
+						<option value="">大一下学期</option>
+						<option value="">大二上学期</option>
+						<option value="">大二下学期</option>
+						<option value="">大三上学期</option>
+						<option value="">大三下学期</option>
+						<option value="">大四上学期</option>
+						<option value="">大四下学期</option>
+					</select>
+				</label>
+				 <label>
+					<span>修改周数:</span>
+					<select name="select2" class="select2">
+						<option value="">第一周</option>
+						<option value="">第二周</option>
+						<option value="">第三周</option>
+						<option value="">第四周</option>
+						<option value="">第五周</option>
+						<option value="">第六周</option>
+						<option value="">第七周</option>
+						<option value="">第八周</option>
+						<option value="">第九周</option>
+						<option value="">第十周</option>
+						<option value="">第十一周</option>
+						<option value="">第十二周</option>
+						<option value="">第十三周</option>
+						<option value="">第十四周</option>
+						<option value="">第十五周</option>
+					  <option value="">第十六周</option>
+						<option value="">第十七周</option>
+						<option value="">第十八周</option>
+						<option value="">第十九周</option>
+						<option value="">第二十周</option>
+					</select>
+				</label>
+			  <div class="spacer"></div>
+			  <div class="about">
+				<table class="school_table">
+				<thead>
+				<tr>
+			<!--item.name：第几学期第几周-->
+					<div class="text" style=" text-align:left;">{{item.name}}</div>
+				</tr>
+				</thead>
 
-		</tr>
-		<tr>
+				<tr>
+			<!--item.name：几月-->
+					<th>节</th>
+					<th>周一</th>
+					<th>周二</th>
+					<th>周三</th>
+					<th>周四</th>
+					<th>周五</th>
+					<th>周六</th>
+					<th>周天</th>
 
-			<th>1</th>
-	<!--{#        item.name：课程名 课程地点#}-->
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>2</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>3</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>4</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>5</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>6</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>7</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>8</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>9</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>10</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>11</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-			<tr>
-			<th>12</th>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.name}}</td>
-		</tr>
-		</table>
-	  </div>
-	  <div class="spacer"></div>
-	</div>
-</div>
+				</tr>`
 
-		   </div>></section>
+					{% for line in data %}
+				<tr>
+					<th>{{line.index}}</th>
+					{% for col in line.text%}
+					<td style="background-color:{{col.color}}">{{col.text}}</td>
+					{% endfor%}
+				</tr>
+					{% endfor%}
+
+				</table>
+			  </div>
+			  <div class="spacer"></div>
+			</div>
+		</div>
+	</div>>
+</section>
 
 {% endblock%}
 </html>

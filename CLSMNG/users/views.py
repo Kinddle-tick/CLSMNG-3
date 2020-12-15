@@ -13,7 +13,7 @@ from django.contrib.auth.forms import UserCreationForm
 def logout_view(request):
     """注销账户"""
     logout(request)
-    return HttpResponseRedirect(reverse('timetable:index'))
+    return HttpResponseRedirect(reverse("index"))
 
 def register(request):
     """注册新用户"""
@@ -29,7 +29,7 @@ def register(request):
             #让用户自动登陆，
             authenticated_user = authenticate(username = new_user.username,password=request.POST['password1'])
             login(request, authenticated_user)
-            return HttpResponseRedirect(reverse('timetable:index'))
+            return HttpResponseRedirect(reverse("index"))
 
     context = {'form':form}
     return render(request, 'users/register.html', context)

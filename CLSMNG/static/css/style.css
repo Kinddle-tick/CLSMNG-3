@@ -1349,7 +1349,7 @@ div#mCSB_1_container{
 
 .about-section{
   position: relative;
-  padding: 0px 0px 130px 0px;
+  padding: 0px 0px 10px 0px;
 }
 
 .content_block_1 .content-box{
@@ -6221,4 +6221,54 @@ div#mCSB_1_container{
 
 .blog-sidebar .sidebar-gallery{
   margin-bottom: 0px;
+}
+
+.school_table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.school_table tr{
+    border-left: 1px solid #cbcbcb;
+    /*border-width: 0px 0px 0px 1px;*/
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+.school_table caption {
+    color: #000;
+    font: italic 85%/1 arial,sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.school_table td,.school_table th {
+    border-left: 1px solid #cbcbcb;
+    border-bottom: 1px solid #cbcbcb;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+
+.school_table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.school_table td {
+    background-color: transparent;
+}
+
+.school_table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+
+.school_table-bordered tbody>tr:last-child>td {
+    border-bottom-width: 0;
 }

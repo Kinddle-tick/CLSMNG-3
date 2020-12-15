@@ -36,8 +36,15 @@
                     <div class="top-inner clearfix">
                         <ul class="info clearfix pull-left">
                             <li><a href="{% url 'index' %}">电子科技大学教室管理系统</a></li>
+                        </ul>
+                        <ul class="info clearfix pull-right">
+                            {% if user.is_authenticated %}
+                            <li><a>Hello, {{ user.username }}.</a></li>
+                            <li><a href="{% url 'users:logout' %}">登出</a></li>
+                            {% else %}
                             <li><a href="{% url 'users:login' %}">登录</a></li>
                             <li><a href="{% url 'users:register' %}">注册</a></li>
+                            {% endif%}
                         </ul>
                     </div>
                 </div>
