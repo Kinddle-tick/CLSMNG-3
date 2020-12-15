@@ -3,7 +3,7 @@ from django.urls import reverse
 # from .forms import OrderForm
 from django.http import HttpResponseRedirect, Http404
 from .models import FeedBack, ClassroomApply, ClassroomStatus
-import datetime
+import datetime, re
 from django.utils import timezone
 from django.forms.models import model_to_dict
 # Create your views here.
@@ -15,15 +15,55 @@ def check(classroomID, period, date):
         return '未找到该时段的教室'
     return getdic['status']
 
+def filter(build, field, floor, status, obj):
+    print(obj)
+    args = [build, field, floor, status]
+    checklist=[True if i =="不限" else False for i in args]
+    mapfloor = {'一层': "1", "二层": "2", "三层": "3", "四层": "4", "五层": "5"}
+    room = obj.classroomID
+    Thebuild = re.match(".*[^0-9A-Za-z]", room).group()
+    Thefield = re.search('[A-Za-z]',room)[0]
+    Thefloor = re.search("[0-9]",room)[0]
+    Thestatus= obj.status
+
+    if Thebuild == build:
+        checklist[0]=True
+    if Thefield == field:
+        checklist[1]=True
+    if Thefloor == mapfloor[floor]:
+        checklist[2]=True
+    if Thestatus == status:
+        checklist[3]=True
+    print(checklist)
+    if checklist == [True,True,True,True]:
+        return {'name':room, 'num1':'*','num2':'*', 'status':Thestatus}
+    else:
+        return None
+
 
 def default(request):
     return render(request, 'error.html')
 
-# def cls(request):
-#     return render(request, '主页-教室.html')
-
 def inquiry(request):
-    return render(request, 'inquiry.html')
+    context ={"hint":'',"filter":{'build':['品学楼','立人楼'], 'field':["A","B","C"],
+                                  "floor":["一层","二层","三层","四层","五层"],
+                                  'status':[i[1] for i in ClassroomStatus.CHOICES_STATUS]},
+              "data":[]}
+
+    if request.POST:
+        print(request.POST)
+        date = datetime.datetime.now().date()
+        all_classroom = ClassroomStatus.objects.filter(date=date)
+        for i in list(all_classroom):
+            rtn=filter(request.POST.get('build'), request.POST.get('field'),
+                      request.POST.get('floor'), request.POST.get('status'), i )
+            if rtn:
+                context["data"].append(rtn)
+            else:
+                continue
+        pass
+
+    return render(request, 'inquiry.html', context=context)
 
 def feedback(request):
     select_reason_list=["实际用途与申请不符","实际使用时间与申请不符","桌椅损坏","多媒体设备故障","其他"]

@@ -57,20 +57,20 @@
 
    //-->
         </SCRIPT>
-<SCRIPT LANGUAGE = JavaScript>
-   <!--
-   //** Power www.w3sky.com
+        <SCRIPT LANGUAGE = JavaScript>
+       <!--
+       //** Power www.w3sky.com
 
 
-   var s=["s1","s2","s3"];
-   var opt0 = ["楼栋","区域","楼层"];
-   function setup(){
-        for(i=0;i<s.length-1;i++)
-        document.getElementById(s[i]).onchange=new Function("change("+(i+1)+")");
-        change(0);
-   }
-   //-->
-   </SCRIPT>
+       var s=["s1","s2","s3"];
+       var opt0 = ["楼栋","区域","楼层"];
+       function setup(){
+            for(i=0;i<s.length-1;i++)
+            document.getElementById(s[i]).onchange=new Function("change("+(i+1)+")");
+            change(0);
+       }
+       //-->
+       </SCRIPT>
 <section class="contact-section">
             <div class="title-text"><h1>Fauxis</h1></div>
             <div class="pattern-layer">
@@ -87,21 +87,36 @@
                                 <h2>空教室查看</h2>
                             </div>
                             <div class="form-inner">
-                                <form action="index.html" method="post">
+                                <form action="{% url 'ordercls:inquiry'%}" method="post">
+                                          {% csrf_token %}
                                     <div class="form-group">
                                         <div style="color:white;font-size:20px">教室查询筛选：</div>
-                                        <form name="frm">
-                                            <select id="s1"><option>楼栋</option></select>
-                                            <select id="s2"><option>区域</option></select>
-                                            <select id="s3"><option>楼层</option></select>
-											<select name="select" class="select">
-														<option value="">教室借用情况</option>
-														<option value="">空闲</option>
-														<option value="">有课</option>
-														<option value="">有条</option>
-														<option value="">借出</option>
-														<option value="">可拼</option>
+                                        <form name="frm" action="{% url 'ordercls:inquiry'%}">
+                                            <select name="build" id="s1">
+                                                {% for i in filter.build %}
+                                                <option value="{{i}}">{{i}}</option>
+                                                {% endfor %}
+                                                <option value="不限">不限</option>
+                                            </select>
+                                            <select name="field" id="s2">
+                                                {% for i in filter.field %}
+                                                <option value="{{i}}">{{i}}</option>
+                                                {% endfor %}
+                                                <option value="不限">不限</option>
+                                            </select>
+                                            <select name="floor" id="s3">
+                                                {% for i in filter.floor %}
+                                                <option value="{{i}}">{{i}}</option>
+                                                {% endfor %}
+                                                <option value="不限">不限</option>
+                                            </select>
+											<select name="status" class="select">
+                                                {% for i in filter.status %}
+                                                <option value="{{i}}">{{i}}</option>
+                                                {% endfor %}
+                                                <option value="不限">不限</option>
 											</select>
+                                            <button type="submit" class="btn" style="background-color: #0d95e8">查询</button>
                                         </form>
                                     </div>
                                     <div class="form-group">
@@ -112,10 +127,12 @@
 								                <th><div style="color:white;font-size:15px">教室借用情况</div></th>
                                             </tr>
                     <!--{#room.name：教室号；room.num1/room.num2：实际使用人数/可用人数；room.state：教室借用情况#}-->
-                                            {% for room.name,room.num1,room.num2,room.state in ls %}
+                                            {% for room in data %}
+                                            <tr>
                                             <th><div style="color:white;font-size:15px">{{room.name}}</div> </th>
-                                            <th><div style="color:white;font-size:15px">{{room.num}}/{{room.num}}</div></th>
-										    <th><div style="color:white;font-size:15px">{{room.state}}</div></th>
+                                            <th><div style="color:white;font-size:15px">{{room.num1}}/{{room.num2}}</div></th>
+										    <th><div style="color:white;font-size:15px">{{room.status}}</div></th>
+                                            </tr>
                                             {% endfor %}
 	                                    </table>
                                     </div>
