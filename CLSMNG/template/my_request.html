@@ -4,46 +4,49 @@
 {% block section%}
     <!-- about-section -->
     <div class="row clearfix">
+        {% if user.is_authenticated %}
         <table width="100%" bgcolor="#f2f2f2">
             <!--内容-->
             <tr>
                 <td>
-                    <table align="center" width="1024px">
+                    <table align="center" width="100%">
                         <tr>
-                            <td width="240px"  valign="top">
+                            <td width="25%"  valign="top">
                                 <table width="100%" bgcolor="#ffffff">
                                     <tr><td align="center" height="60px">教室</td></tr>
-        <!--							class.name:教室名。如：品A101-->
-                                    {% for class.name in ls %}
-                                    <tr><td align="center" height="60px">{{class.name}}</td></tr>{% endfor %}
+        <!--							class.name:教室名。如：品101-->
+                                    {% for i in data %}
+                                    <tr><td align="center" height="60px">{{i.classroom}}</td></tr>
+                                    {% endfor %}
                                 </table>
                             </td> <!--左内容-->
-                            <td width="240px"  valign="top">
+                            <td width="25%"  valign="top">
                                 <table width="100%" bgcolor="#ffffff">
                                     <tr><td align="center" height="60px">预约时间</td></tr>
                                     <!--							time:预约时间。如：2020.2.3 七八节-->
-                                    {% for time in ls %}
-                                    <tr><td align="center" height="60px">{{time}}</td></tr>{% endfor %}
+                                    {% for i in data %}
+                                    <tr><td align="center" height="60px">{{i.datetime}}</td></tr>
+                                    {% endfor %}
                                 </table>
                             </td> <!--左内容-->
-                            <td width="20px"></td> <!--空隙-->
-                            <td width="240px"  valign="top">
+                            <td width="25%x"  valign="top">
                                 <table width="100%" bgcolor="#ffffff">
                                     <tr><td align="center" height="60px">审核状态</td></tr>
                                     <!--							state:审核状态，有：待审核、审核通过、审核不通过几项-->
-                                    {% for state in ls %}
-                                    <tr><td align="center" height="60px">{{state}}</td></tr>{% endfor %}
+                                    {% for i in data %}
+                                    <tr><td align="center" height="60px">{{i.status}}</td></tr>
+                                    {% endfor %}
 
 
                                 </table>
                             </td> <!--左内容-->
-                            <td width="240px"  valign="top">
+                            <td width="25%"  valign="top">
                                 <table width="100%" bgcolor="#ffffff">
                                     <tr>
                                       <td align="center" height="60px">审核备注</td></tr>
                                     <!--							comm：审核备注-->
-                                    {% for comm in ls %}
-                                    <tr><td align="center" height="60px">{{comm}}</td></tr>{% endfor %}
+                                    {% for i in data %}
+                                    <tr><td align="center" height="60px">{{i.reason}}</td></tr>{% endfor %}
                                 </table>
                             </td> <!--左内容-->
                         </tr> <!--右内容:单元格宽度的和=表格宽度1024px-->
@@ -51,10 +54,12 @@
                 </td>
             </tr>
             <!--下空行-->
-            <tr height="10px">
-                <td></td>
-            </tr>
         </table>
+        {% else %}
+        <div width="100%">
+            <h4>登陆后才能查看自己的申请</h4>
+        </div>
+        {% endif%}
     </div>
 {% endblock%}
 </head>

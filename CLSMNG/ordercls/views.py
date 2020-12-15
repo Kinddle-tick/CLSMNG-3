@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect, Http404
 from .models import FeedBack, ClassroomApply, ClassroomStatus
 import datetime
+from django.utils import timezone
 from django.forms.models import model_to_dict
 # Create your views here.
 
@@ -37,11 +38,13 @@ def order(request):
     context = {"hint": '', "classroom_dic": ["品学楼A", "品学楼B", "品学楼C","立人楼A","立人楼B"],
                "apply_time": [i[1] for i in ClassroomApply.CHOICES_TIMEPIERED],
                "apply_reason":["班级自习", "班级活动", "部门活动", "老师调课", "其他"]}
+    tz = datetime.timezone(datetime.timedelta(hours=+8))
     if request.POST:
         # print(request.POST)
         classroomID = request.POST.get("select_build")+request.POST.get("local")
         period = request.POST.get("period")
         date = datetime.datetime.now().date()
+        print(datetime.datetime.now().astimezone(tz))
         status = check(classroomID,period,date)
         user = request.POST.get("user")
         detail = request.POST.get('order-detail')
@@ -49,6 +52,7 @@ def order(request):
             if status == "空闲" or status == "可拼":
                 reasondic = {'apply_reason':detail, "deny_reason":''}
                 ClassroomApply.objects.create(date=date, classroomID=classroomID,
+                                              datetime=datetime.datetime.now().astimezone(tz),
                                               timePeriod=period, userID=user, reason=reasondic)
                 context['hint'] = "提交成功， 耐心等待审核哦～"
             else:
@@ -64,7 +68,21 @@ def order(request):
     return render(request, 'order.html', context=context)
 
 #<!--{#        room.name：教室号；room.num1/room.num2：实际使用人数/可用人数#}-->
+
 def my_request(request):
+    if request.user.is_authenticated:
+        context={"hint":'',"data":[]}
+        tz = datetime.timezone(datetime.timedelta(hours=+8))
+        user = request.user
+        applylist = ClassroomApply.objects.filter(userID=user)
+        print(applylist)
+        if applylist.values().first() != None:
+            for i in list(applylist):
+                context["data"].append({"classroom": i.classroomID,
+                                        "datetime": str(i.datetime.astimezone(tz))[:-10],
+                                        "status": i.status,
+                                        "reason": i.reason['deny_reason']})
+            return render(request, 'my_request.html', context=context)
     return render(request, 'my_request.html')
 
 def init(request):
@@ -76,6 +94,7 @@ def init(request):
                 for i in classroomID for j in period]
     # 先删除所有内容
     ClassroomStatus.objects.all().delete()
+    ClassroomApply.objects.all().delete()
     for i in initdata:
         ClassroomStatus.objects.create(date=i['date'],classroomID=i['classroomID'],
                                        timePeriod=i['timePeriod'])
