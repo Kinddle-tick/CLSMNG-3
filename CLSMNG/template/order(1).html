@@ -1,0 +1,63 @@
+<html>
+<head>
+{% extends "base.html" %}
+{% block section%}
+   <!-- about-section -->
+<div class="tab active-tab" id="tab-2">
+          <div class="row clearfix align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                          <div class="image-box">
+                                 <figure class="image"><img src="assets/images/resource/history-1.jpg" alt=""></figure>
+                           </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 content-column">
+                     <form name="contact" action="../网页模板/scripts/contact.php" id="contactform" method="post">
+                            <div class="form-group">
+                                   <div style="color:black;font-size:20px">申请教室</div>
+                                   <div class="box">
+                       <!--<input name="name" type="text" class="input" id="sender_name" />-->
+                                        <select  type="text" class="input" id="：sender_name">
+                                            <option value="">品学楼A101</option>
+                                            <option value="">品学楼A102</option>
+                                            <option value="">品学楼A103</option>
+                                            <option value="">品学楼A104</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                    <div style="color:black;font-size:20px">申请时间</div>
+                                    <div class="box">
+                                        <select id="sender_name">
+                                            <option value="">第一，二节课</option>
+                                            <option value="">第三，四节课</option>
+                                            <option value="">第五，六节课</option>
+                                            <option value="">第七，八节课</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="color:black;font-size:20px">申请理由</div>
+                                <div class="box">
+                                    <select  id="sender_name">
+                                            <option value="">班级自习</option>
+                                            <option value="">班级活动</option>
+                                            <option value="">部门活动</option>
+                                            <option value="">老师调课</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+								<div style="color:black;font-size:20px">申请单位</div>
+                                    <input type="text"  placeholder="申请单位名称" required="">
+                                </div>
+                            <div class="form-group message-btn">
+                                <button type="submit" class="theme-btn-one">提交</button>
+                            </div>
+                     </form>
+                </div>
+          </div>
+ </div>
+{% endblock%}
+</head>
+</html>
+

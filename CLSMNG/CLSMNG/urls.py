@@ -20,13 +20,9 @@ from django.shortcuts import render,redirect
 urlpatterns = [
     path('', lambda request: render(request, 'index.html'), name='index'),
     path('admin/', admin.site.urls),
-    # path('ordercls/', include('ordercls.urls', namespace='ordercls')),
-    # path('timetable/', include('timetable.urls', namespace='timetable')),
-    # path('monitor/', include('monitor.urls', namespace='monitor')),
-    # path('users/', include('users.urls', namespace='users')),
     path('ordercls/', include('ordercls.urls')),
     path('timetable/', include('timetable.urls')),
-    path('monitor/', include('monitor.urls')),
+    # path('monitor/', include('monitor.urls')),
     path('users/', include('users.urls')),
-    path('<htmls>', lambda request, htmls: render(request, htmls))
+    path('<htmls>', lambda request, htmls: render(request, htmls))# 便于初期调试查看html, 之后建议删除
 ]

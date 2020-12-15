@@ -17,7 +17,7 @@ urlpatterns = [
     # url(r'^find3/$',views.find3,name = 'find3'),
     # url(r'^find4/$',views.find4,name = 'find4'),
     # url(r'^order/$',views.order,name = 'order'),
-    url(r'^search/$', views.search, name='search'),
+    # url(r'^search/$', views.search, name='search'),
     url(r'^school_timetable/$', views.school_timetable, name='school_timetable'),
 
     # url(r'^(?P<path>.*)$', serve, {'document_root': 'timetable/templates/timetable/assets'}),

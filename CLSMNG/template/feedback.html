@@ -3,82 +3,80 @@
 {% extends "base.html" %}
 {% block section%}
 
-            <!-- about-section -->
-        <section class="contact-style-two">
-<!--            <div class="outer-container">-->
-                <div class="auto-container" style="background-color: #4a3b9f">
-<div class="row clearfix">
-    <div class="col-lg-6 col-md-12 col-sm-12 form-column">
-        <div class="inner-box">
-            <div class="sec-title">
-                <p>反馈</p>
-                <div class="shape"></div>
-            </div>
-            <div class="form-inner">
-                <div id="contact">
-                    <h5 style="margin-top:10px;">反馈</h5>
-                    <p>如果您想向我们反馈相关信息，请使用此表格，我们将很快给您答复！</p>
-                    <form method="post" action="sendemail.php" id="contact-form" class="default-form">
-                        <div class="boxes">
-                            <h6>反馈类型</h6>
-                            <div class="box">
-                                <select name="select" class="select">
-                                    <option value="">实际用途与申请不符</option>
-                                    <option value="">实际使用时间与申请不符</option>                <option value="">桌椅损坏</option>                <option value="">多媒体设备故障</option>				<option value="">其他</option>
-                                </select>
-                            </div>
-
-                            <h6>具体理由</h6>
-
-                            <div class="msgbox">
-
-                                <textarea name="cf_message" rows="50" cols="30" class="message" id="cf_message" placeholder="请准确填写理由，有利于审核"></textarea>
-
-                            </div>
-
-                            <h6>请以附件形式提交反馈凭证（支持以图片、音频、视频格式上传）:</h6>
-
-                            <h6><img src="images/tip logo.jpg" width="18" height="18" alt="logo" />提示：仅限20M以内文件</h6>
-
-                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
-                            <button class="theme-btn-one" onclick="upload.click()" >附件</button>
-                            <input type="file" name="upload" id="upload" style="display: none;" />
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
-                                    <button class="theme-btn-one" type="submit" name="submit-form">提交</button>
-                                </div>
-                        </div>
-                    </form>
-
+<section class="contact-style-two">
+    <div class="row clearfix" style="background-color: #4a3b9f">
+        <div class="col-lg-6 col-md-12 col-sm-12 form-column" style="background-color: #4a3b9f">
+            <div class="inner-box">
+                <div class="sec-title light">
+                    <div style="color:white;font-size:20px;padding-top: 10px">反馈</div>
+                    <div class="shape"></div>
                 </div>
+                <div class="form-inner">
+                    <div id="contact">
+                        <form method="post" action="{% url 'ordercls:feedback' %}" id="contact-form" class="default-form">
+                            {% csrf_token %}
+                            <div class="boxes">
+                                <ul class="info clearfix">
+                                    <li><div style="color:white;font-size:20px;padding-bottom: 5px">反馈类型</div></li>
+                                <div class="box" style="padding-bottom: 5px">
+                                    <select name="feedback-select-reason" class="select">
+                                        {% for reason in reason_list %}
+                                        <option value="{{reason}}">{{reason}}</option>
+                                        {% endfor %}
+<!--                                        <option value="实际用途与申请不符">实际用途与申请不符</option>-->
+<!--                                        <option value="实际使用时间与申请不符">实际使用时间与申请不符</option>-->
+<!--                                        <option value="桌椅损坏">桌椅损坏</option>-->
+<!--                                        <option value="多媒体设备故障">多媒体设备故障</option>-->
+<!--                                        <option value="其他">其他</option>-->
+                                    </select>
+                                </div>
 
+                                <div style="color:white;font-size:20px">具体理由</div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <textarea name="feedback-message" placeholder="申请理由详述 ..."></textarea>
+                                </div>
+                                    <p style="color:white;font-size:15px;">{{hint}}</p>
+                                <div><h6 style="color:white;font-size:20px;padding-bottom: 5px">请以附件形式提交反馈凭证（支持以图片、音频、视频格式上传）:</h6></div>
+                                <div><h6 style="color:white;font-size:20px;padding-bottom: 5px">提示：仅限20M以内文件</h6></div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                        <button class="theme-btn-one" onclick="upload.click()" >附件</button>
+                                        <input type="file" name="upload" id="upload" value='none' style="display: none;" />
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                        <button class="theme-btn-one" type="submit" name="submit-form" value="normal">提交</button>
+                                </div>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-6 col-md-12 col-sm-12 info-column">
-        <div class="info-box">
-            <h3>我们的联系方式</h3>
-            <ul class="info clearfix">
-                <li>
-                    <i class="fal fa-map-marker"></i>
-                    <p>工作室</p>
-                    <h4>八块石头工作坊</h4>
-                </li>
-                <li>
-                    <i class="fal fa-phone"></i>
-                    <h4><span>电话</span><a href="tel:1258985703">185#######</a></h4>
-                </li>
-                <li>
-                    <i class="fal fa-envelope-open"></i>
-                    <h4><span>电子邮箱</span><a href="mailto:info@example.com">17#######</a></h4>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!--                </div>-->
+        <div class="col-lg-6 col-md-12 col-sm-12 info-column" style="background-color: #4a3b9f">
+            <div class="info-box">
+                <h3>我们的联系方式</h3>
+                <ul class="info clearfix">
+                    <li>
+                        <i class="fal fa-map-marker"></i>
+                        <p>工作室</p>
+                        <h4>八块石头工作坊</h4>
+                    </li>
+                    <li>
+                        <i class="fal fa-phone"></i>
+                        <h4><span>电话</span><a href="tel:1258985703">185#######</a></h4>
+                    </li>
+                    <li>
+                        <i class="fal fa-envelope-open"></i>
+                        <h4><span>电子邮箱</span><a href="mailto:info@example.com">17#######</a></h4>
+                    </li>
+                </ul>
+                </div>
             </div>
-        </section>
+    </div>
+</section>
 {% endblock%}
 </head>
 </html>

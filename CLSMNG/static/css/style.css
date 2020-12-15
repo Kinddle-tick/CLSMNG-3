@@ -2927,7 +2927,9 @@ div#mCSB_1_container{
 }
 
 .main-header.style-two .header-lower .lower-inner{
-  position: relative;
+  /*position: relative;*/
+  position: absolute;
+  width: 100%;
 }
 
 .main-header.style-two .header-lower .outer-box{
