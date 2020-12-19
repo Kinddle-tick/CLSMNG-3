@@ -10,6 +10,9 @@ from django.urls import reverse
 
 from django.contrib.auth.decorators import login_required
 import re
+#  用于将数据库中以json格式存储的课程表转化成模版能读懂的context元素，
+#  其中context元素是按照绝对位置坐标来管理表格每个格子的颜色与文本，json则是较为易读的可以收工编辑的格式（在init中可以看到）
+#  ！现在还没有做周数区分的功能
 def school_table_decode(table:dict):
     color_list=["#FFFFCC", "#CCFFFF", "#FFCCCC", "#FFCC99", "#FFFF99", "#99CC99"]
     context=[{"index": i+1, "text":[{"text":'',"color":"#ffffff", 'property':None} for j in range(7)] } for i in range(12)]
@@ -37,7 +40,9 @@ def school_table_decode(table:dict):
 
     return context
 
-
+#  为了便于演示，在userID选择了一个默认值，
+#  如果未来能获得课程表相关的足够资料可以更改这个函数的设计，通过多表查询进行
+#  当然也可以设计成可以通过自定义更改的模式（超级课程表）
 def school_timetable(request):
     default_use='0001'
     try:
@@ -52,24 +57,25 @@ def school_timetable(request):
     return render(request, 'school_timetable.html', context={"data":context})
 
 @login_required
+#  想不到search函数有什么用 就放在这里了
 def search(request):
     return render(request, 'index.html')
 
 
 
 
-
+#  初始化数据库的函数，用来便捷的在网页上重置timetable的数据库，在初始化设计中有两组课程表
 def init(request):
     timetb_init = [{'userID': '0001', 'is_delete': False, 'data': {
         '1': ["学术英语", ["1-3:4"]], '2': ['信号与系统', ["1-5:6", "3-3:4", "5-3:4"]], '3': ['微嵌', ["2-1:2", "4-5:6", "5-1:2"]],
-        '4': ['游泳', "2-3:4"], '5': ["计算机通信网", ["2-5:6", "4-1:2"]], '6': ["专业写作与表达", "2-9:10"],
-        '7': ["顶点计划", "3-5:6"], '8': ["大物实验(单)", "4-3:4,odd"], '9': ["电工电气", "4-9:12"]
+        '4': ['游泳', ["2-3:4"]], '5': ["计算机通信网", ["2-5:6", "4-1:2"]], '6': ["专业写作与表达", ["2-9:10"]],
+        '7': ["顶点计划", ["3-5:6"]], '8': ["大物实验(单)", ["4-3:4,odd"]], '9': ["电工电气", ["4-9:12"]]
                     }},
                    {'userID': '0002', 'is_delete': False, 'data': {
                        '1': ["学术英语", ["1-3:4"]], '2': ['信号与系统', ["1-5:6", "3-3:4", "5-3:4"]],
                        '3': ['微嵌', ["2-1:2", "4-5:6", "5-1:2"]],
-                       '4': ['游泳', "2-3:4"], '5': ["计算机通信网", ["2-5:6", "4-1:2"]], '6': ["专业写作与表达", "2-9:10"],
-                       '7': ["顶点计划", "3-5:6"], '8': ["大物实验(双)", "4-3:4,even"], '9': ["电工电气", "4-9:12"]
+                       '4': ['游泳', ["2-3:4"]], '5': ["计算机通信网", ["2-5:6", "4-1:2"]], '6': ["专业写作与表达", ["2-9:10"]],
+                       '7': ["顶点计划", ["3-5:6"]], '8': ["大物实验(双)", ["4-3:4,even"]], '9': ["电工电气", ["4-9:12"]]
                    }},
                    ]
     #  删除所有数据

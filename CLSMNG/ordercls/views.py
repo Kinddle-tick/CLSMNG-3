@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.forms.models import model_to_dict
 # Create your views here.
 
+#  从数据库中尝试查找该教室是否存在（order的子函数）
 def check(classroomID, period, date):
     get = ClassroomStatus.objects.filter(classroomID=classroomID, timePeriod=period, date=date)
     getdic=get.values().first()
@@ -15,6 +16,7 @@ def check(classroomID, period, date):
         return '未找到该时段的教室'
     return getdic['status']
 
+#  通过过滤数据库的内容按照要求POST的过滤要求展示内容，（inquiry子函数）
 def filter(build, field, floor, status, obj):
     print(obj)
     args = [build, field, floor, status]
@@ -40,10 +42,11 @@ def filter(build, field, floor, status, obj):
     else:
         return None
 
-
+#  测试用
 def default(request):
     return render(request, 'error.html')
-
+#  空教室查询 有一个可随意设置的POST表单提供过滤条件（过滤条件可以在开头的context列表中设计，
+#  首次访问页面data是没有数据的，也就不会展示空教室对应的表格）
 def inquiry(request):
     context ={"hint":'',"filter":{'build':['品学楼','立人楼'], 'field':["A","B","C"],
                                   "floor":["一层","二层","三层","四层","五层"],
@@ -65,6 +68,7 @@ def inquiry(request):
 
     return render(request, 'inquiry.html', context=context)
 
+#  反馈提交 相关理由都可以自定义，数据库方面没有过滤需求
 def feedback(request):
     select_reason_list=["实际用途与申请不符","实际使用时间与申请不符","桌椅损坏","多媒体设备故障","其他"]
     context = {'form': None, "reason_list":select_reason_list, "hint":''}
@@ -74,6 +78,7 @@ def feedback(request):
         context['hint'] = '😄提交成功！请耐心等待工作人员的处理'
     return render(request, 'feedback.html', context)
 
+# 定教室，context也可以自定义
 def order(request):
     context = {"hint": '', "classroom_dic": ["品学楼A", "品学楼B", "品学楼C","立人楼A","立人楼B"],
                "apply_time": [i[1] for i in ClassroomApply.CHOICES_TIMEPIERED],
@@ -108,7 +113,7 @@ def order(request):
     return render(request, 'order.html', context=context)
 
 #<!--{#        room.name：教室号；room.num1/room.num2：实际使用人数/可用人数#}-->
-
+# 我的申请页面
 def my_request(request):
     if request.user.is_authenticated:
         context={"hint":'',"data":[]}
@@ -125,6 +130,7 @@ def my_request(request):
             return render(request, 'my_request.html', context=context)
     return render(request, 'my_request.html')
 
+#  申请状态的数据库初始化
 def init(request):
     build = ["品学楼A", "品学楼B", "品学楼C","立人楼A","立人楼B"]
     date = datetime.datetime.now().date()
